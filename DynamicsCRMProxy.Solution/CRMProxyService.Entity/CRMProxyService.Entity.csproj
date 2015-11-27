@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CRMProxyService.Entity</RootNamespace>
     <AssemblyName>CRMProxyService.Entity</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,8 +31,62 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AntiXSSLibrary">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\AntiXSSLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Crm.Outlook.Sdk">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Crm.Outlook.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Crm.Tools.EmailProviders">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Crm.Tools.EmailProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Client">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Client.CodeGeneration">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Client.CodeGeneration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Portal">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Portal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Portal.Files">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Portal.Files.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk.Deployment">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Sdk.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk.Workflow">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Sdk.Workflow.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Tooling.Connector">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Tooling.Connector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Tooling.CrmConnectControl">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Tooling.CrmConnectControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Tooling.CrmConnector.Powershell">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Tooling.CrmConnector.Powershell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Tooling.PackageDeployment.Powershell">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Tooling.PackageDeployment.Powershell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Tooling.Ui.Styles">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Tooling.Ui.Styles.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Tooling.WebResourceUtility">
+      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Tooling.WebResourceUtility.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,7 +94,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ObjectConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProxyBaselineProjection.cs" />
+    <Compile Include="ProxyNSOCovenant.cs" />
+    <Compile Include="ProxyOpportunity.cs" />
+    <Compile Include="ProxySOVCovenant.cs" />
+    <Compile Include="Xrm.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

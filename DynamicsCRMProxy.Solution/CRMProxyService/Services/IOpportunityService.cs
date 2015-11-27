@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRMProxyService.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -12,14 +13,10 @@ namespace CRMProxyService.Services
     public interface IOpportunityService
     {
         [OperationContract]
-        CustomAccount GetOneAccount(Guid id);
+        List<ProxyOpportunity> GetAllOpportunity();
         [OperationContract]
-        List<CustomAccount> GetAllAccount();
+        ProxyOpportunity GetOneOpportunity(Guid id);
         [OperationContract]
-        List<CustomOpportunity> GetAllOpportunity();
-        [OperationContract]
-        CustomOpportunity GetOneOpportunity(Guid id);
-        [OperationContract]
-        bool UpdateOpportunity(Guid id, CustomOpportunity opp);
+        bool UpdateOpportunity(Guid id, ProxyOpportunity opp);
     }
 }

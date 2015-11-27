@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRMProxyService.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -12,36 +13,14 @@ namespace CRMProxyService.Services
     // NOTE: In order to launch WCF Test Client for testing this service, please select OpportunityService.svc or OpportunityService.svc.cs at the Solution Explorer and start debugging.
     public class OpportunityService : IOpportunityService
     {
-        public List<CustomAccount> GetAllAccount()
-        {
-            var xrm = new XrmServiceContext("Xrm");
-            var all = xrm.AccountSet.ToList();
 
-            List<CustomAccount> accs = new List<CustomAccount>();
-            foreach (Xrm.Account item in all)
-            {
-                CustomAccount converted = ObjectConverter.ConvertToReadableAccount(item);
-                accs.Add(converted);
-            }
-            return accs;
-        }
-
-        public CustomAccount GetOneAccount(Guid id)
-        {
-            var xrm = new XrmServiceContext("Xrm");
-            //return 
-            Xrm.Account orig = xrm.AccountSet.Where(c => c.Id == id).FirstOrDefault();
-
-            return ObjectConverter.ConvertToReadableAccount(orig);
-        }
-
-        public List<CustomOpportunity> GetAllOpportunity()
+        public List<ProxyOpportunity> GetAllOpportunity()
         {
             var xrm = new XrmServiceContext("Xrm");
             var all = xrm.OpportunitySet.ToList();
 
-            List<CustomOpportunity> accs = new List<CustomOpportunity>();
-            foreach (Xrm.Opportunity item in all)
+            List<ProxyOpportunity> accs = new List<ProxyOpportunity>();
+            foreach (Opportunity item in all)
             {
                 CustomOpportunity converted = ObjectConverter.ConvertToReadableOpportunity(item);
                 accs.Add(converted);
@@ -49,11 +28,11 @@ namespace CRMProxyService.Services
             return accs;
         }
 
-        public CustomOpportunity GetOneOpportunity(Guid id)
+        public ProxyOpportunity GetOneOpportunity(Guid id)
         {
             var xrm = new XrmServiceContext("Xrm");
             //return 
-            Xrm.Opportunity orig = xrm.OpportunitySet.Where(c => c.Id == id).FirstOrDefault();
+            Opportunity orig = xrm.OpportunitySet.Where(c => c.Id == id).FirstOrDefault();
 
             return ObjectConverter.ConvertToReadableOpportunity(orig);
         }

@@ -31,56 +31,73 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AntiXSSLibrary">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\AntiXSSLibrary.dll</HintPath>
+    <Reference Include="AntiXSSLibrary, Version=4.2.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\AntiXSSLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Crm.Outlook.Sdk">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Crm.Outlook.Sdk.dll</HintPath>
+    <Reference Include="Microsoft.Crm.Outlook.Sdk, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Microsoft.Crm.Outlook.Sdk.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Crm.Sdk.Proxy">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Crm.Tools.EmailProviders">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Crm.Tools.EmailProviders.dll</HintPath>
+    <Reference Include="Microsoft.Crm.Tools.EmailProviders, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Microsoft.Crm.Tools.EmailProviders.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xrm.Client">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Client.dll</HintPath>
+    <Reference Include="Microsoft.Xrm.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Microsoft.Xrm.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xrm.Client.CodeGeneration">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Client.CodeGeneration.dll</HintPath>
+    <Reference Include="Microsoft.Xrm.Client.CodeGeneration, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Microsoft.Xrm.Client.CodeGeneration.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xrm.Portal">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Portal.dll</HintPath>
+    <Reference Include="Microsoft.Xrm.Portal, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Microsoft.Xrm.Portal.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xrm.Portal.Files">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Portal.Files.dll</HintPath>
+    <Reference Include="Microsoft.Xrm.Portal.Files, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Microsoft.Xrm.Portal.Files.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xrm.Sdk">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Sdk.dll</HintPath>
+    <Reference Include="Microsoft.Xrm.Sdk, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Microsoft.Xrm.Sdk.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xrm.Sdk.Deployment">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Sdk.Deployment.dll</HintPath>
+    <Reference Include="Microsoft.Xrm.Sdk.Deployment, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Microsoft.Xrm.Sdk.Deployment.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xrm.Sdk.Workflow">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Sdk.Workflow.dll</HintPath>
+    <Reference Include="Microsoft.Xrm.Sdk.Workflow, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Microsoft.Xrm.Sdk.Workflow.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xrm.Tooling.Connector">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Tooling.Connector.dll</HintPath>
+    <Reference Include="Microsoft.Xrm.Tooling.Connector, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Microsoft.Xrm.Tooling.Connector.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xrm.Tooling.CrmConnectControl">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Tooling.CrmConnectControl.dll</HintPath>
+    <Reference Include="Microsoft.Xrm.Tooling.CrmConnectControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Microsoft.Xrm.Tooling.CrmConnectControl.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xrm.Tooling.CrmConnector.Powershell">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Tooling.CrmConnector.Powershell.dll</HintPath>
+    <Reference Include="Microsoft.Xrm.Tooling.CrmConnector.Powershell, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Microsoft.Xrm.Tooling.CrmConnector.Powershell.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xrm.Tooling.PackageDeployment.Powershell">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Tooling.PackageDeployment.Powershell.dll</HintPath>
+    <Reference Include="Microsoft.Xrm.Tooling.PackageDeployment.Powershell, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Microsoft.Xrm.Tooling.PackageDeployment.Powershell.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xrm.Tooling.Ui.Styles">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Tooling.Ui.Styles.dll</HintPath>
+    <Reference Include="Microsoft.Xrm.Tooling.Ui.Styles, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Microsoft.Xrm.Tooling.Ui.Styles.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xrm.Tooling.WebResourceUtility">
-      <HintPath>..\..\..\..\..\Dynamics CRM\2015\SDK\Bin\Microsoft.Xrm.Tooling.WebResourceUtility.dll</HintPath>
+    <Reference Include="Microsoft.Xrm.Tooling.WebResourceUtility, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Microsoft.Xrm.Tooling.WebResourceUtility.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -101,6 +118,25 @@
     <Compile Include="ProxyOpportunity.cs" />
     <Compile Include="ProxySOVCovenant.cs" />
     <Compile Include="Xrm.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assemblies\AntiXSSLibrary.dll" />
+    <Content Include="Assemblies\Microsoft.Crm.Outlook.Sdk.dll" />
+    <Content Include="Assemblies\Microsoft.Crm.Sdk.Proxy.dll" />
+    <Content Include="Assemblies\Microsoft.Crm.Tools.EmailProviders.dll" />
+    <Content Include="Assemblies\Microsoft.Xrm.Client.CodeGeneration.dll" />
+    <Content Include="Assemblies\Microsoft.Xrm.Client.dll" />
+    <Content Include="Assemblies\Microsoft.Xrm.Portal.dll" />
+    <Content Include="Assemblies\Microsoft.Xrm.Portal.Files.dll" />
+    <Content Include="Assemblies\Microsoft.Xrm.Sdk.Deployment.dll" />
+    <Content Include="Assemblies\Microsoft.Xrm.Sdk.dll" />
+    <Content Include="Assemblies\Microsoft.Xrm.Sdk.Workflow.dll" />
+    <Content Include="Assemblies\Microsoft.Xrm.Tooling.Connector.dll" />
+    <Content Include="Assemblies\Microsoft.Xrm.Tooling.CrmConnectControl.dll" />
+    <Content Include="Assemblies\Microsoft.Xrm.Tooling.CrmConnector.Powershell.dll" />
+    <Content Include="Assemblies\Microsoft.Xrm.Tooling.PackageDeployment.Powershell.dll" />
+    <Content Include="Assemblies\Microsoft.Xrm.Tooling.Ui.Styles.dll" />
+    <Content Include="Assemblies\Microsoft.Xrm.Tooling.WebResourceUtility.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

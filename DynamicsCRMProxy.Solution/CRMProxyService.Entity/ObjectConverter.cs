@@ -41,7 +41,7 @@ namespace CRMProxyService.Entity
                 //new_ModeofFinancialAssistance
                 co.ModeOfFinancialAssistance = orig.FormattedValues["new_modeoffinancialassistance"];
                 //new_ProcessingCategory
-                co.ProcessingCategory = orig.FormattedValues["new_nsoprocessingcategory"];
+                co.ProcessingCategory = orig.FormattedValues["new_processingcategory"];
                 //new_ProcessingScenario
                 co.processingScenario = orig.FormattedValues["new_processingscenario"];
                 //new_ProjectStage

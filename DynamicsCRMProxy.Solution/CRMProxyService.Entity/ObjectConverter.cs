@@ -25,7 +25,7 @@ namespace CRMProxyService.Entity
                 co.Country = orig.FormattedValues["new_country"];
                 co.Region = orig.FormattedValues["new_region"];
                 co.Sector = orig.FormattedValues["new_Sector"];
-                co.SubSector = orig.FormattedValues["new_subsector"];
+                //co.SubSector = orig.FormattedValues["new_subsector"];
                 
                 var selectedCurrency = context.TransactionCurrencySet.Where(x => x.TransactionCurrencyId == orig.TransactionCurrencyId.Id).FirstOrDefault();
                 co.Currency = selectedCurrency.CurrencyName;

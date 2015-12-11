@@ -52,10 +52,26 @@ namespace CRMProxyService.Entity
                 co.AdditionalFinancing = orig.new_AdditionalFinancing.Value ? "Yes" : "No";
                 //statuscode
                 co.ProjectStatus = orig.FormattedValues["statuscode"];
+                co.Department = orig.new_Department;
+                co.ClosingDate = orig.EstimatedCloseDate.Value;
+               
 
+               
             }
             return co;
 
+        }
+
+        public static List<ProxyAccount> ConvertToProxyAccount(IEnumerable<Account> accounts)
+        {
+            List<ProxyAccount> results = new List<ProxyAccount>();
+            foreach (Account item in accounts)
+            {
+                ProxyAccount acct = new ProxyAccount();
+                acct.AccountName = item.Name;
+                acct.Country = item.FormattedValues["new_country"];
+            }
+            return results;
         }
 
         public static List<ProxyNSOCovenant> ConvertToNSOCovenant(IEnumerable<new_nsocovenant> list)

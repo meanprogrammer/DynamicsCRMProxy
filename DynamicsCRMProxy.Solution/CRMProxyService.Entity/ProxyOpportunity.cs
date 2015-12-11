@@ -60,6 +60,20 @@ namespace CRMProxyService.Entity
         [DataMember]
         public FormattedValueCollection Fake { get; set; }
 
+        //PRS
+        [DataMember]
+        public string Department { get; set; }
+        [DataMember]
+        public string Division { get; set; }
+        [DataMember]
+        public DateTime ClosingDate { get; set; }
+        [DataMember]
+        public decimal ADBFinancing { get; set; }
+
+        //Agencies
+        [DataMember]
+        public List<ProxyAccount> Agencies { get; set; }
+
         public List<ProxyNSOCovenant> NSOCovenants { get; set; }
         [DataMember]
         public List<ProxySOVCovenant> SOVCovenants { get; set; }

@@ -113,6 +113,7 @@
   <ItemGroup>
     <Compile Include="ObjectConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProxyAccount.cs" />
     <Compile Include="ProxyBaselineProjection.cs" />
     <Compile Include="ProxyNSOCovenant.cs" />
     <Compile Include="ProxyOpportunity.cs" />

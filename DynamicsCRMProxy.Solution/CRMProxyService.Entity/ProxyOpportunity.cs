@@ -23,6 +23,15 @@ namespace CRMProxyService.Entity
         [DataMember]
         public string ProjectRationale { get; set; }
         [DataMember]
+        public string Region { get; set; }
+        [DataMember]
+        public string Sector { get; set; }
+        [DataMember]
+        public string SubSector { get; set; }
+        [DataMember]
+        public string Country { get; set; }
+        [DataMember]
+        public string Currency { get; set; }
         public List<ProxyNSOCovenant> NSOCovenants { get; set; }
         [DataMember]
         public List<ProxySOVCovenant> SOVCovenants { get; set; }

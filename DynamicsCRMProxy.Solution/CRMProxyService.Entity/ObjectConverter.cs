@@ -13,15 +13,18 @@ namespace CRMProxyService.Entity
         public static ProxyOpportunity ConvertToReadableOpportunity(Opportunity orig)
         {
             ProxyOpportunity co = new ProxyOpportunity();
-            co.Id = orig.Id;
-            co.OpportunityId = orig.OpportunityId.Value;
-            co.Name = orig.Name;
-            co.Description = orig.Description;
-            co.ProjectDescription = orig.new_ProjectDescription;
-            co.ProjectRationale = orig.new_ProjectRationale;
+            using (Xrm.XrmServiceContext content = new XrmServiceContext("Xrm"))
+            {
 
-            //orig.cov
-
+                co.Id = orig.Id;
+                co.OpportunityId = orig.OpportunityId.Value;
+                co.Name = orig.Name;
+                co.Description = orig.Description;
+                co.ProjectDescription = orig.new_ProjectDescription;
+                co.ProjectRationale = orig.new_ProjectRationale;
+                co.Region = orig.FormattedValues["new_country"].ToString();
+                //orig.cov
+            }
             return co;
 
         }

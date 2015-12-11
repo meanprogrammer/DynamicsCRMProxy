@@ -45,9 +45,13 @@ namespace CRMProxyService.Entity
                 //new_ProcessingScenario
                 co.processingScenario = orig.FormattedValues["new_processingscenario"];
                 //new_ProjectStage
+                co.ProjectStage = orig.FormattedValues["new_projectstage"];
                 //new_expectedapprovalyear
+                co.ExpectedApprovalYear = orig.FormattedValues["new_expectedapprovalyear"];
                 //new_additionalfinancing
+                co.AdditionalFinancing = orig.new_AdditionalFinancing.Value ? "Yes" : "No";
                 //statuscode
+                co.ProjectStatus = orig.FormattedValues["statuscode"];
 
             }
             return co;

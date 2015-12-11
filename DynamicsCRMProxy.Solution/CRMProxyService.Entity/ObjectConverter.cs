@@ -26,15 +26,18 @@ namespace CRMProxyService.Entity
                 co.Region = orig.FormattedValues["new_region"];
                 co.Sector = orig.FormattedValues["new_sector"];
                 co.SubSector = orig.FormattedValues["new_subsector"];
-                
                 var selectedCurrency = context.TransactionCurrencySet.Where(x => x.TransactionCurrencyId == orig.TransactionCurrencyId.Id).FirstOrDefault();
                 co.Currency = selectedCurrency.CurrencyName;
                 //new_ApprovalLevel
-                //TransactionCurrencyId - LU
+                co.ApprovalLevel = orig.FormattedValues["new_ApprovalLevel"];
                 //BudgetAmount
+                co.BudgetAmount = orig.BudgetAmount.Value;
                 //new_Guarantee
+                co.Guarantee = orig.new_Guarantee.Value ? "Yes" : "No";
                 //new_Borrower
+                co.Borrower = orig.new_Borrower;
                 //new_CategoryType
+                co.CategoryType = orig.FormattedValues["new_CategoryType"];
                 //new_ModeofFinancialAssistance
                 //new_ProcessingCategory
                 //new_ProcessingScenario

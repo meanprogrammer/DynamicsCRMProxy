@@ -36,7 +36,7 @@ namespace CRMProxyService.Entity
         [DataMember]
         public string ApprovalLevel { get; set; }
         [DataMember]
-        public double BudgetAmount { get; set; }
+        public decimal BudgetAmount { get; set; }
         [DataMember]
         public string Guarantee { get; set; }
         [DataMember]

@@ -29,7 +29,7 @@ namespace CRMProxyService.Entity
                 var selectedCurrency = context.TransactionCurrencySet.Where(x => x.TransactionCurrencyId == orig.TransactionCurrencyId.Id).FirstOrDefault();
                 co.Currency = selectedCurrency.CurrencyName;
                 //new_ApprovalLevel
-                co.ApprovalLevel = orig.FormattedValues["new_ApprovalLevel"];
+                co.ApprovalLevel = orig.FormattedValues["new_approvallevel"];
                 //BudgetAmount
                 co.BudgetAmount = orig.BudgetAmount.Value;
                 //new_Guarantee
@@ -37,10 +37,13 @@ namespace CRMProxyService.Entity
                 //new_Borrower
                 co.Borrower = orig.new_Borrower;
                 //new_CategoryType
-                co.CategoryType = orig.FormattedValues["new_CategoryType"];
+                co.CategoryType = orig.FormattedValues["new_categorytype"];
                 //new_ModeofFinancialAssistance
+                co.ModeOfFinancialAssistance = orig.FormattedValues["new_modeoffinancialassistance"];
                 //new_ProcessingCategory
+                co.ProcessingCategory = orig.FormattedValues["new_nsoprocessingcategory"];
                 //new_ProcessingScenario
+                co.processingScenario = orig.FormattedValues["new_processingscenario"];
                 //new_ProjectStage
                 //new_expectedapprovalyear
                 //new_additionalfinancing

@@ -13,7 +13,7 @@ namespace CRMProxyService.Entity
         public static ProxyOpportunity ConvertToReadableOpportunity(Opportunity orig)
         {
             ProxyOpportunity co = new ProxyOpportunity();
-            using (Xrm.XrmServiceContext content = new XrmServiceContext("Xrm"))
+            using (Xrm.XrmServiceContext context = new XrmServiceContext("Xrm"))
             {
 
                 co.Id = orig.Id;
@@ -22,8 +22,27 @@ namespace CRMProxyService.Entity
                 co.Description = orig.Description;
                 co.ProjectDescription = orig.new_ProjectDescription;
                 co.ProjectRationale = orig.new_ProjectRationale;
-                co.Region = orig.FormattedValues["new_country"].ToString();
-                //orig.cov
+                co.Country = orig.FormattedValues["new_country"];
+                co.Region = orig.FormattedValues["new_region"];
+                co.Sector = orig.FormattedValues["new_Sector"];
+                co.SubSector = orig.FormattedValues["new_subsector"];
+                
+                var selectedCurrency = context.TransactionCurrencySet.Where(x => x.TransactionCurrencyId == orig.TransactionCurrencyId.Id).FirstOrDefault();
+                co.Currency = selectedCurrency.CurrencyName;
+                //new_ApprovalLevel
+                //TransactionCurrencyId - LU
+                //BudgetAmount
+                //new_Guarantee
+                //new_Borrower
+                //new_CategoryType
+                //new_ModeofFinancialAssistance
+                //new_ProcessingCategory
+                //new_ProcessingScenario
+                //new_ProjectStage
+                //new_expectedapprovalyear
+                //new_additionalfinancing
+                //statuscode
+
             }
             return co;
 

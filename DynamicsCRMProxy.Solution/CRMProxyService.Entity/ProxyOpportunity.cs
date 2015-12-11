@@ -32,6 +32,31 @@ namespace CRMProxyService.Entity
         public string Country { get; set; }
         [DataMember]
         public string Currency { get; set; }
+        [DataMember]
+        public string ApprovalLevel { get; set; }
+        [DataMember]
+        public double BudgetAmount { get; set; }
+        [DataMember]
+        public string Guarantee { get; set; }
+        [DataMember]
+        public string Borrower { get; set; }
+        [DataMember]
+        public string CategoryType { get; set; }
+        [DataMember]
+        public string ModeOfFinancialAssistance { get; set; }
+        [DataMember]
+        public string ProcessingCategory { get; set; }
+        [DataMember]
+        public string processingScenario { get; set; }
+        [DataMember]
+        public string ProjectStage { get; set; }
+        [DataMember]
+        public string ExpectedApprovalYear { get; set; }
+        [DataMember]
+        public string AdditionalFinancing { get; set; }
+        [DataMember]
+        public string ProjectStatus { get; set; }
+
         public List<ProxyNSOCovenant> NSOCovenants { get; set; }
         [DataMember]
         public List<ProxySOVCovenant> SOVCovenants { get; set; }

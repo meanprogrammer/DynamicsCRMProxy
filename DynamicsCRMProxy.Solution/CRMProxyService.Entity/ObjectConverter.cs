@@ -70,6 +70,11 @@ namespace CRMProxyService.Entity
             List<ProxyAccount> results = new List<ProxyAccount>();
             foreach (Account item in accounts)
             {
+                if (item.FormattedValues["new_agencyrole"] != "Executing Agency" && item.FormattedValues["new_agencyrole"] != "Implementing Agency")
+                {
+                    continue;
+                }
+
                 ProxyAccount acct = new ProxyAccount();
                 acct.AccountName = item.Name;
                 //acct.Country = item.FormattedValues["new_country"];

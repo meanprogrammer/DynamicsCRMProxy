@@ -76,7 +76,8 @@ namespace CRMProxyService.Entity
             acct.AccountName = account.Name;
             acct.EntityRole = EnsureValueFromOptionSet(account, "new_agencyrole");
             acct.ID = account.Id;
-            acct.ParentID = (account.new_OpportunityAccountId != null) ? account.new_OpportunityAccountId.Id : Guid.Empty;
+            acct.ParentID = (account.new_OpportunityAccountId != null) ? account.new_OpportunityAccountId.Id.ToString() : Guid.Empty.ToString();
+            acct.IDstring = acct.ID.ToString();
             acct.Country = EnsureValueFromOptionSet(account, "new_agencycountry");
 
             return acct;

@@ -57,7 +57,7 @@ namespace CRMProxyService.Entity
                
                 //Agencies
                 //orig.new_opportunity_account
-                co.Agencies = ConvertToProxyAccount(orig.new_opportunity_account);
+                //co.Agencies = ConvertToProxyAccount(orig.new_opportunity_account);
                
             }
             return co;

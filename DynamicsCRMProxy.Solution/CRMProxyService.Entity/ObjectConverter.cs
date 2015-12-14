@@ -55,7 +55,7 @@ namespace CRMProxyService.Entity
                 co.Department = orig.new_Department;
                 co.ClosingDate = orig.EstimatedCloseDate.Value;
                 co.Division = orig.new_Division;
-                co.DivisionRole = orig.FormattedValues["new_divisionrole"];               
+                //co.DivisionRole = orig.FormattedValues["new_divisionrole"];               
             }
             return co;
 

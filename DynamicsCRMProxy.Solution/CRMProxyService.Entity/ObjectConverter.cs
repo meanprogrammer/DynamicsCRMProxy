@@ -74,16 +74,19 @@ namespace CRMProxyService.Entity
                 {
                     continue;
                 }
-
+                StringBuilder sb = new StringBuilder();
                 foreach (var i in item.FormattedValues)
                 {
-                    Console.WriteLine(string.Format("{0}-{1}", i.Key, i.Value));
+                    sb.Append(string.Format("{0}-{1}", i.Key, i.Value));
                 }
+
+                
 
                 ProxyAccount acct = new ProxyAccount();
                 acct.AccountName = item.Name;
                 acct.EntityRole = item.FormattedValues["new_agencyrole"];
                 //acct.Country = item.FormattedValues["new_agencycountry"];
+                acct.Country = sb.ToString();
                 results.Add(acct);
             }
             return results;

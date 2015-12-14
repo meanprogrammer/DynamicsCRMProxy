@@ -77,7 +77,7 @@ namespace CRMProxyService.Entity
                 StringBuilder sb = new StringBuilder();
                 foreach (var i in item.FormattedValues)
                 {
-                    sb.Append(string.Format("{0}-{1}", i.Key, i.Value));
+                    sb.Append(string.Format("Key: {0} Value: {1}{2}", i.Key, i.Value, Environment.NewLine));
                 }
 
                 

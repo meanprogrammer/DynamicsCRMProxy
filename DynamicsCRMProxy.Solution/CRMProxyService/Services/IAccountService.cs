@@ -13,6 +13,9 @@ namespace CRMProxyService.Services
     public interface IAccountService
     {
         [OperationContract]
-        List<ProxyAccount> GetAllAccounts();  
+        List<ProxyAccount> GetAllAccounts();
+
+        [OperationContract]
+        ProxyAccount GetOneAccount(Guid id);
     }
 }

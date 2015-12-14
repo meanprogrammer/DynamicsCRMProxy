@@ -70,6 +70,19 @@ namespace CRMProxyService.Entity
             return string.Empty;
         }
 
+        public static ProxyAccount SingleConvertToProxyAccount(Account account)
+        {
+            ProxyAccount acct = new ProxyAccount();
+            acct.AccountName = account.Name;
+            acct.EntityRole = EnsureValueFromOptionSet(account, "new_agencyrole");
+
+            acct.ParentID = account.new_OpportunityAccountId.Id;
+            acct.Country = EnsureValueFromOptionSet(account, "new_agencycountry");
+
+            return acct;
+
+        }
+
         public static List<ProxyAccount> ConvertToProxyAccount(IEnumerable<Account> accounts)
         {
             List<ProxyAccount> results = new List<ProxyAccount>();
@@ -86,16 +99,7 @@ namespace CRMProxyService.Entity
                     sb.Append(string.Format("Key: {0} Value: {1}{2}", i.Key, i.Value, Environment.NewLine));
                 }*/
 
-                
-
-                ProxyAccount acct = new ProxyAccount();
-                acct.AccountName = item.Name;
-                acct.EntityRole = EnsureValueFromOptionSet(item,"new_agencyrole");
-                
-                acct.ParentID = item.new_OpportunityAccountId.Id;
-                acct.Country = EnsureValueFromOptionSet(item, "new_agencycountry");
-
-
+                ProxyAccount acct = SingleConvertToProxyAccount(item);
                 results.Add(acct);
             }
             return results;

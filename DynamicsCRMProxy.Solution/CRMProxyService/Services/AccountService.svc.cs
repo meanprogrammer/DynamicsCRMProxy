@@ -19,5 +19,13 @@ namespace CRMProxyService.Services
             var xrm = new XrmServiceContext("Xrm");
             return ObjectConverter.ConvertToProxyAccount(xrm.AccountSet.ToList());
         }
+
+
+        public ProxyAccount GetOneAccount(Guid id)
+        {
+            var xrm = new XrmServiceContext("Xrm");
+            Account ac = xrm.AccountSet.Where(x => x.Id == id).FirstOrDefault();
+            return ObjectConverter.SingleConvertToProxyAccount(ac);
+        }
     }
 }

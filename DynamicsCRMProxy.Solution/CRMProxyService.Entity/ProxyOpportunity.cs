@@ -57,9 +57,10 @@ namespace CRMProxyService.Entity
         public string AdditionalFinancing { get; set; }
         [DataMember]
         public string ProjectStatus { get; set; }
+        /*
         [DataMember]
         public FormattedValueCollection Fake { get; set; }
-
+        */
         //PRS
         [DataMember]
         public string Department { get; set; }
@@ -75,9 +76,9 @@ namespace CRMProxyService.Entity
         //Agencies
         //[DataMember]
         //public List<ProxyAccount> Agencies { get; set; }
-
+        /*
         public List<ProxyNSOCovenant> NSOCovenants { get; set; }
         [DataMember]
-        public List<ProxySOVCovenant> SOVCovenants { get; set; }
+        public List<ProxySOVCovenant> SOVCovenants { get; set; }*/
     }
 }

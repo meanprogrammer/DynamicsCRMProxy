@@ -24,5 +24,7 @@ namespace CRMProxyService.Entity
         public string Country { get; set; }
         [DataMember]
         public string Address { get; set; }
+        [DataMember]
+        public Guid ParentID { get; set; }
     }
 }

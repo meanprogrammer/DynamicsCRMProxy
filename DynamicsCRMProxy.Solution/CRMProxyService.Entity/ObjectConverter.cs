@@ -55,11 +55,7 @@ namespace CRMProxyService.Entity
                 co.Department = orig.new_Department;
                 co.ClosingDate = orig.EstimatedCloseDate.Value;
                 co.Division = orig.new_Division;
-                co.DivisionRole = orig.FormattedValues["new_divisionrole"];
-                //Agencies
-                //orig.new_opportunity_account
-                co.Agencies = ConvertToProxyAccount(orig.new_opportunity_account);
-               
+                co.DivisionRole = orig.FormattedValues["new_divisionrole"];               
             }
             return co;
 
@@ -70,6 +66,7 @@ namespace CRMProxyService.Entity
             List<ProxyAccount> results = new List<ProxyAccount>();
             foreach (Account item in accounts)
             {
+                /*
                 if (item.FormattedValues["new_agencyrole"] != "Executing Agency" && item.FormattedValues["new_agencyrole"] != "Implementing Agency")
                 {
                     continue;
@@ -78,18 +75,20 @@ namespace CRMProxyService.Entity
                 foreach (var i in item.FormattedValues)
                 {
                     sb.Append(string.Format("Key: {0} Value: {1}{2}", i.Key, i.Value, Environment.NewLine));
-                }
+                }*/
 
                 
 
                 ProxyAccount acct = new ProxyAccount();
                 acct.AccountName = item.Name;
                 acct.EntityRole = item.FormattedValues["new_agencyrole"];
+                acct.Country = item.FormattedValues["new_agencycountry"];
+                acct.ParentID = item.new_OpportunityAccountId.Id;
+                /*
                 if (item.FormattedValues.ContainsKey("new_agencycountry"))
                 {
-                    acct.Country = item.FormattedValues["new_agencycountry"];
-                }
-                //acct.Country = sb.ToString();
+                    
+                }*/
                 results.Add(acct);
             }
             return results;

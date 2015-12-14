@@ -55,7 +55,9 @@ namespace CRMProxyService.Entity
                 co.Department = orig.new_Department;
                 co.ClosingDate = orig.EstimatedCloseDate.Value;
                
-
+                //Agencies
+                //orig.new_opportunity_account
+                co.Agencies = ConvertToProxyAccount(orig.new_opportunity_account);
                
             }
             return co;

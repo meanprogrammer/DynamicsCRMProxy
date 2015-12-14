@@ -54,10 +54,11 @@ namespace CRMProxyService.Entity
                 co.ProjectStatus = orig.FormattedValues["statuscode"];
                 co.Department = orig.new_Department;
                 co.ClosingDate = orig.EstimatedCloseDate.Value;
-               
+                co.Division = orig.new_Division;
+                co.DivisionRole = orig.FormattedValues["new_divisionrole"];
                 //Agencies
                 //orig.new_opportunity_account
-                //co.Agencies = ConvertToProxyAccount(orig.new_opportunity_account);
+                co.Agencies = ConvertToProxyAccount(orig.new_opportunity_account);
                
             }
             return co;
@@ -71,7 +72,8 @@ namespace CRMProxyService.Entity
             {
                 ProxyAccount acct = new ProxyAccount();
                 acct.AccountName = item.Name;
-                acct.Country = item.FormattedValues["new_country"];
+                //acct.Country = item.FormattedValues["new_country"];
+                results.Add(acct);
             }
             return results;
         }

@@ -66,6 +66,8 @@ namespace CRMProxyService.Entity
         [DataMember]
         public string Division { get; set; }
         [DataMember]
+        public string DivisionRole { get; set; }
+        [DataMember]
         public DateTime ClosingDate { get; set; }
         [DataMember]
         public decimal ADBFinancing { get; set; }

@@ -22,14 +22,14 @@ namespace CRMProxyService.Entity
                 co.Description = orig.Description;
                 co.ProjectDescription = orig.new_ProjectDescription;
                 co.ProjectRationale = orig.new_ProjectRationale;
-                co.Country = orig.FormattedValues["new_country"];
-                co.Region = orig.FormattedValues["new_region"];
-                co.Sector = orig.FormattedValues["new_sector"];
-                co.SubSector = orig.FormattedValues["new_subsector"];
+                co.Country = EnsureValueFromOptionSet(orig,"new_country");
+                co.Region = EnsureValueFromOptionSet(orig,"new_region");
+                co.Sector = EnsureValueFromOptionSet(orig,"new_sector");
+                co.SubSector = EnsureValueFromOptionSet(orig,"new_subsector");
                 var selectedCurrency = context.TransactionCurrencySet.Where(x => x.TransactionCurrencyId == orig.TransactionCurrencyId.Id).FirstOrDefault();
                 co.Currency = selectedCurrency.CurrencyName;
                 //new_ApprovalLevel
-                co.ApprovalLevel = orig.FormattedValues["new_approvallevel"];
+                co.ApprovalLevel = EnsureValueFromOptionSet(orig,"new_approvallevel");
                 //BudgetAmount
                 co.BudgetAmount = orig.BudgetAmount.Value;
                 //new_Guarantee
@@ -37,28 +37,37 @@ namespace CRMProxyService.Entity
                 //new_Borrower
                 co.Borrower = orig.new_Borrower;
                 //new_CategoryType
-                co.CategoryType = orig.FormattedValues["new_categorytype"];
+                co.CategoryType = EnsureValueFromOptionSet(orig,"new_categorytype");
                 //new_ModeofFinancialAssistance
-                co.ModeOfFinancialAssistance = orig.FormattedValues["new_modeoffinancialassistance"];
+                co.ModeOfFinancialAssistance = EnsureValueFromOptionSet(orig,"new_modeoffinancialassistance");
                 //new_ProcessingCategory
-                co.ProcessingCategory = orig.FormattedValues["new_processingcategory"];
+                co.ProcessingCategory = EnsureValueFromOptionSet(orig,"new_processingcategory");
                 //new_ProcessingScenario
-                co.processingScenario = orig.FormattedValues["new_processingscenario"];
+                co.processingScenario = EnsureValueFromOptionSet(orig,"new_processingscenario");
                 //new_ProjectStage
-                co.ProjectStage = orig.FormattedValues["new_projectstage"];
+                co.ProjectStage = EnsureValueFromOptionSet(orig,"new_projectstage");
                 //new_expectedapprovalyear
-                co.ExpectedApprovalYear = orig.FormattedValues["new_expectedapprovalyear"];
+                co.ExpectedApprovalYear = EnsureValueFromOptionSet(orig,"new_expectedapprovalyear");
                 //new_additionalfinancing
                 co.AdditionalFinancing = orig.new_AdditionalFinancing.Value ? "Yes" : "No";
                 //statuscode
-                co.ProjectStatus = orig.FormattedValues["statuscode"];
+                co.ProjectStatus = EnsureValueFromOptionSet(orig,"statuscode");
                 co.Department = orig.new_Department;
                 co.ClosingDate = orig.EstimatedCloseDate.Value;
                 co.Division = orig.new_Division;
-                //co.DivisionRole = orig.FormattedValues["new_divisionrole"];               
+                co.DivisionRole = EnsureValueFromOptionSet(orig,"new_divisionrole");               
             }
             return co;
 
+        }
+
+        private static string EnsureValueFromOptionSet(Microsoft.Xrm.Client.CrmEntity entity, string key)
+        {
+            if (entity.FormattedValues.ContainsKey(key))
+            { 
+                return entity.FormattedValues[key];
+            }
+            return string.Empty;
         }
 
         public static List<ProxyAccount> ConvertToProxyAccount(IEnumerable<Account> accounts)

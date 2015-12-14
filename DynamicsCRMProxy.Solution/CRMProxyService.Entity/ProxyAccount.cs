@@ -11,6 +11,8 @@ namespace CRMProxyService.Entity
     public class ProxyAccount
     {
         [DataMember]
+        public Guid ID { get; set; }
+        [DataMember]
         public string AccountName { get; set; }
         [DataMember]
         public string Phone { get; set; }

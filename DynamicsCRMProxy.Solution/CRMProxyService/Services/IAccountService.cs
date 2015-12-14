@@ -13,6 +13,6 @@ namespace CRMProxyService.Services
     public interface IAccountService
     {
         [OperationContract]
-        List<ProxyAccount> GetAllAccounts();
+        List<ProxyAccount> GetAllAccounts();  
     }
 }

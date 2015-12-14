@@ -75,7 +75,10 @@ namespace CRMProxyService.Entity
                     continue;
                 }
 
-        
+                foreach (var i in item.FormattedValues)
+                {
+                    Console.WriteLine(string.Format("{0}-{1}", i.Key, i.Value));
+                }
 
                 ProxyAccount acct = new ProxyAccount();
                 acct.AccountName = item.Name;

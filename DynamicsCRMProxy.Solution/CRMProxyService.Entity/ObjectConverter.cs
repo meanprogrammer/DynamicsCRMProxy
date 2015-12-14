@@ -77,7 +77,8 @@ namespace CRMProxyService.Entity
 
                 ProxyAccount acct = new ProxyAccount();
                 acct.AccountName = item.Name;
-                //acct.Country = item.FormattedValues["new_country"];
+                acct.EntityRole = item.FormattedValues["new_agencyrole"];
+                acct.Country = item.FormattedValues["new_agencycountry"];
                 results.Add(acct);
             }
             return results;

@@ -58,7 +58,7 @@ namespace CRMProxyService.Entity
                 co.DivisionRole = EnsureValueFromOptionSet(orig, "new_divisionrole");
 
                 co.RealOpportunity = orig;
-
+                co.teams = orig.opportunity_Teams;
                 
             }
             return co;

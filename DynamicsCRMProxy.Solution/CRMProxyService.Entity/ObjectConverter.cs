@@ -61,7 +61,7 @@ namespace CRMProxyService.Entity
                 co.teams = orig.opportunity_Teams;
 
                 co.c1 = orig.opportunity_connections1;
-                co.c2 = orig.opportunity_connections2;
+                //co.c2 = orig.opportunity_connections2;
             }
             return co;
 

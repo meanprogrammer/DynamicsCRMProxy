@@ -74,7 +74,7 @@ namespace CRMProxyService.Entity
         public decimal ADBFinancing { get; set; }
 
         //Agencies
-        //[DataMember]
+        [DataMember]
         public List<ProxyAccount> Agencies { get; set; }
         
         /*

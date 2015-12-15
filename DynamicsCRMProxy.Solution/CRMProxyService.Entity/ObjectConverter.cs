@@ -55,7 +55,9 @@ namespace CRMProxyService.Entity
                 co.Department = orig.new_Department;
                 co.ClosingDate = orig.EstimatedCloseDate.HasValue ? orig.EstimatedCloseDate.Value : DateTime.MinValue;
                 co.Division = orig.new_Division;
-                co.DivisionRole = EnsureValueFromOptionSet(orig, "new_divisionrole");               
+                co.DivisionRole = EnsureValueFromOptionSet(orig, "new_divisionrole");
+
+                co.RealOpportunity = orig;
             }
             return co;
 

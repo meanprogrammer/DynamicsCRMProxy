@@ -60,7 +60,7 @@ namespace CRMProxyService.Entity
                 //co.RealOpportunity = orig;
                 //co.teams = orig.opportunity_Teams;
 
-                co.c1 = orig.opportunity_connections1;
+                //co.c1 = orig.opportunity_connections1;
                 //co.c2 = orig.opportunity_connections2;
             }
             return co;
@@ -110,6 +110,29 @@ namespace CRMProxyService.Entity
                 results.Add(acct);
             }
             return results;
+        }
+
+        public static List<ProxyConnection> ConvertToProxyConnection(IEnumerable<Xrm.Connection> connections)
+        {
+            List<ProxyConnection> result = new List<ProxyConnection>();
+            foreach (Xrm.Connection c in connections)
+            {
+                ProxyConnection pc = SingleConvertToProxyConnection(c);
+                result.Add(pc);
+            }
+            return result;
+        }
+
+        public static ProxyConnection SingleConvertToProxyConnection(Xrm.Connection connection)
+        {
+            ProxyConnection pc = null;
+            if (connection != null)
+            {
+                pc = new ProxyConnection();
+                pc.Name = connection.Name;
+                pc.OpportunityId = connection.Record1Id != null ? connection.Record1Id.Id.ToString() : Guid.Empty.ToString();
+            }
+            return pc;
         }
 
         public static List<ProxyNSOCovenant> ConvertToNSOCovenant(IEnumerable<new_nsocovenant> list)

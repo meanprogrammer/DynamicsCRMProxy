@@ -16,14 +16,15 @@ namespace CRMProxyService.Services
 
         public List<ProxyOpportunity> GetAllOpportunity()
         {
-            var xrm = new XrmServiceContext("Xrm");
-            var all = xrm.OpportunitySet.ToList();
-
             List<ProxyOpportunity> accs = new List<ProxyOpportunity>();
-            foreach (Opportunity item in all)
+            using (var xrm = new XrmServiceContext("Xrm"))
             {
-                ProxyOpportunity converted = ObjectConverter.ConvertToReadableOpportunity(item);
-                accs.Add(converted);
+                var all = xrm.OpportunitySet.ToList();
+                foreach (Opportunity item in all)
+                {
+                    ProxyOpportunity converted = ObjectConverter.ConvertToReadableOpportunity(item);
+                    accs.Add(converted);
+                }
             }
             return accs;
         }

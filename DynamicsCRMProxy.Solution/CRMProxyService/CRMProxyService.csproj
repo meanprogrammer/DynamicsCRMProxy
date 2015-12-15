@@ -148,6 +148,7 @@
     <Content Include="Assemblies\Microsoft.Xrm.Tooling.Ui.Styles.dll" />
     <Content Include="Assemblies\Microsoft.Xrm.Tooling.WebResourceUtility.dll" />
     <Content Include="Services\AccountService.svc" />
+    <Content Include="Services\ConnectionService.svc" />
     <Content Include="Services\OpportunityService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -156,7 +157,11 @@
     <Compile Include="Services\AccountService.svc.cs">
       <DependentUpon>AccountService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Services\ConnectionService.svc.cs">
+      <DependentUpon>ConnectionService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Services\IAccountService.cs" />
+    <Compile Include="Services\IConnectionService.cs" />
     <Compile Include="Services\IOpportunityService.cs" />
     <Compile Include="Services\OpportunityService.svc.cs">
       <DependentUpon>OpportunityService.svc</DependentUpon>

@@ -85,5 +85,11 @@ namespace CRMProxyService.Entity
 
         [DataMember]
         public IEnumerable<Xrm.Team> teams { get; set; }
+
+        [DataMember]
+        public IEnumerable<Xrm.Connection> c1 { get; set; }
+
+        [DataMember]
+        public IEnumerable<Xrm.Connection> c2 { get; set; }
     }
 }

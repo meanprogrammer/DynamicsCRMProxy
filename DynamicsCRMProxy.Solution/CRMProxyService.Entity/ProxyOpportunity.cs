@@ -75,7 +75,8 @@ namespace CRMProxyService.Entity
 
         //Agencies
         //[DataMember]
-        //public List<ProxyAccount> Agencies { get; set; }
+        public List<ProxyAccount> Agencies { get; set; }
+        
         /*
         public List<ProxyNSOCovenant> NSOCovenants { get; set; }
         [DataMember]

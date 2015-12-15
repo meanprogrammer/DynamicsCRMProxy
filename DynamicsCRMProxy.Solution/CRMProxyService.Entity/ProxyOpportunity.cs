@@ -82,5 +82,8 @@ namespace CRMProxyService.Entity
         public List<ProxySOVCovenant> SOVCovenants { get; set; }*/
         [DataMember]
         public Xrm.Opportunity RealOpportunity { get; set; }
+
+        [DataMember]
+        public IEnumerable<Xrm.Team> teams { get; set; }
     }
 }

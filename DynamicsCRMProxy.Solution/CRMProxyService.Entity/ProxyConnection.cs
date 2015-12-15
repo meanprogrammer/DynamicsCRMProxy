@@ -18,5 +18,8 @@ namespace CRMProxyService.Entity
 
         [DataMember]
         public Guid ID { get; set; }
+
+        [DataMember]
+        public string Role { get; set; }
     }
 }

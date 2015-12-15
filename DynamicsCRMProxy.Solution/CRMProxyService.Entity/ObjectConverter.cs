@@ -57,7 +57,7 @@ namespace CRMProxyService.Entity
                 co.Division = orig.new_Division;
                 co.DivisionRole = EnsureValueFromOptionSet(orig, "new_divisionrole");
 
-                co.Agencies = ConvertToProxyAccount(orig.new_opportunity_account.ToList()).ToArray();
+                //co.Agencies = ConvertToProxyAccount(orig.new_opportunity_account.ToList()).ToArray();
 
                 //co.RealOpportunity = orig;
                 //co.teams = orig.opportunity_Teams;

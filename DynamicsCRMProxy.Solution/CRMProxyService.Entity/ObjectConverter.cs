@@ -130,6 +130,7 @@ namespace CRMProxyService.Entity
             {
                 pc = new ProxyConnection();
                 pc.Name = connection.Name;
+                pc.ID = connection.Id;
                 pc.OpportunityId = connection.Record1Id != null ? connection.Record1Id.Id.ToString() : Guid.Empty.ToString();
             }
             return pc;

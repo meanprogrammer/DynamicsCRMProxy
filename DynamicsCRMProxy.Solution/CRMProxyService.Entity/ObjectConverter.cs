@@ -216,15 +216,47 @@ namespace CRMProxyService.Entity
         public static ProxySOVCovenant SingleConvertToSOVCovenant(new_covenants covenant)
         {
 
-            ProxySOVCovenant cov = new ProxySOVCovenant();
-            cov.CovenantDescription = covenant.new_CovenantDescription;
-            cov.CovenantID = covenant.new_covenantsId.Value;
-            cov.Name = covenant.new_name;
-            cov.ParentID = (covenant.new_opportunity_new_covenants != null) ? covenant.new_opportunity_new_covenants.Id : Guid.Empty;
+            ProxySOVCovenant proxyCovenant = new ProxySOVCovenant();
+            proxyCovenant.CovenantDescription = covenant.new_CovenantDescription;
+            proxyCovenant.CovenantID = covenant.new_covenantsId != null ? covenant.new_covenantsId.Value : Guid.Empty;
+            proxyCovenant.Name = covenant.new_name;
+            proxyCovenant.ParentID = (covenant.new_opportunity_new_covenants != null) ? covenant.new_opportunity_new_covenants.Id : Guid.Empty;
             //"__bo4200"
-            cov.ParentIDString = string.Format("{0}{1}", string.Empty, cov.ParentID.ToString());
-            cov.ID = covenant.Id;
-            return cov;
+            proxyCovenant.ParentIDString = string.Format("{0}{1}", string.Empty, proxyCovenant.ParentID.ToString());
+            proxyCovenant.ID = covenant.Id;
+
+            /*
+             * public DateTime EffectiveStartDate { get; set; }
+        [DataMember]
+        public DateTime EffectiveEndDate { get; set; }
+        [DataMember]
+        public string CovenantType { get; set; }
+        [DataMember]
+        public DateTime DueDate { get; set; }
+        [DataMember]
+        public DateTime CompliedDate { get; set; }
+        [DataMember]
+        public string Rating { get; set; }
+        [DataMember]
+        public string Remarks { get; set; }
+        [DataMember]
+        public int ParagraphNo { get; set; }
+        [DataMember]
+        public int AgreementSectionNo { get; set; }
+             */
+
+            proxyCovenant.EffectiveStartDate = covenant.new_EffectiveStartDate;
+            proxyCovenant.EffectiveEndDate = covenant.new_EffectiveEndDate;
+            proxyCovenant.CovenantType = EnsureValueFromOptionSet(covenant,"new_covenanttype");
+            proxyCovenant.DueDate = covenant.new_DueDate;
+            proxyCovenant.CompliedDate = covenant.new_CompiledDate;
+            proxyCovenant.Rating = covenant.new_Rating;
+            proxyCovenant.Remarks = EnsureValueFromOptionSet(covenant, "new_remarks");
+            proxyCovenant.ParagraphNo = covenant.new_ParagraphNo;
+            proxyCovenant.AgreementSectionNo = covenant.new_AgreementSectionNo;
+
+
+            return proxyCovenant;
         }
     }
 }

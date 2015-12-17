@@ -20,6 +20,7 @@ namespace CRMProxyService.Entity
             public Guid ParentID { get; set; }
             [DataMember]
             public string ParentIDString { get; set; }
-
+            [DataMember]
+            public Guid ID { get; set; }
     }
 }

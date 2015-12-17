@@ -158,7 +158,7 @@ namespace CRMProxyService.Entity
             covenant.Name = nso.new_name;
             covenant.ParentID = (nso.new_opportunity_new_nsocovenant != null) ? nso.new_opportunity_new_nsocovenant.OpportunityId.Value : Guid.Empty;
             covenant.ParentIDString = string.Format("{0}{1}", "__bo4200", covenant.ParentID.ToString());
-
+            covenant.ID = nso.Id;
             return covenant;
         }
 
@@ -221,6 +221,7 @@ namespace CRMProxyService.Entity
             cov.Name = covenant.new_name;
             cov.ParentID = (covenant.new_opportunity_new_covenants != null) ? covenant.new_opportunity_new_covenants.Id : Guid.Empty;
             cov.ParentIDString = string.Format("{0}{1}", "__bo4200", cov.ParentID.ToString());
+            cov.ID = covenant.Id;
             return cov;
         }
     }

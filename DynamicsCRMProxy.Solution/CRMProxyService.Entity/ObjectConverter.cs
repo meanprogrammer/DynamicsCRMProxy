@@ -152,15 +152,43 @@ namespace CRMProxyService.Entity
 
         public static ProxyNSOCovenant SingleConvertToNSOCovenant(new_nsocovenant nso)
         {
-            ProxyNSOCovenant covenant = new ProxyNSOCovenant();
-            covenant.CovenantDescription = nso.new_Description;
-            covenant.CovenantID = nso.new_nsocovenantId.Value;
-            covenant.Name = nso.new_name;
-            covenant.ParentID = (nso.new_opportunity_new_nsocovenant != null) ? nso.new_opportunity_new_nsocovenant.OpportunityId.Value : Guid.Empty;
+            ProxyNSOCovenant proxyCovenant = new ProxyNSOCovenant();
+            proxyCovenant.CovenantDescription = nso.new_Description;
+            proxyCovenant.CovenantID = nso.new_nsocovenantId.Value;
+            proxyCovenant.Name = nso.new_name;
+            proxyCovenant.ParentID = (nso.new_opportunity_new_nsocovenant != null) ? nso.new_opportunity_new_nsocovenant.OpportunityId.Value : Guid.Empty;
             //"__bo4200"
-            covenant.ParentIDString = string.Format("{0}{1}", string.Empty, covenant.ParentID.ToString());
-            covenant.ID = nso.Id;
-            return covenant;
+            proxyCovenant.ParentIDString = string.Format("{0}{1}", string.Empty, proxyCovenant.ParentID.ToString());
+            proxyCovenant.ID = nso.Id;
+
+
+            /*
+             * [DataMember]
+        public string CovenantType { get; set; }
+        [DataMember]
+        public string Reference { get; set; }
+        [DataMember]
+        public string FrequencyOfReview { get; set; }
+        [DataMember]
+        public string RemarksIssues { get; set; }
+        [DataMember]
+        public DateTime? DueDate { get; set; }
+        [DataMember]
+        public string CompliedWith { get; set; }
+        [DataMember]
+        public DateTime SubmissionDate { get; set; }
+        [DataMember]
+        public string Status { get; set; }
+             */
+            proxyCovenant.CovenantType = EnsureValueFromOptionSet(nso, "new_type");
+            proxyCovenant.Reference = nso.new_Reference;
+            proxyCovenant.FrequencyOfReview = EnsureValueFromOptionSet(nso, "new_frequencyofreview");
+            proxyCovenant.RemarksIssues = nso.new_RemarksIssues;
+            proxyCovenant.DueDate = nso.new_DueDate;
+            proxyCovenant.CompliedWith = EnsureValueFromOptionSet(nso, "new_compliedwith");
+            proxyCovenant.SubmissionDate = nso.new_SubmissionDate;
+            proxyCovenant.Status = EnsureValueFromOptionSet(nso, "new_status");
+            return proxyCovenant;
         }
 
         public static List<ProxyBaselineProjection> ConvertToBaselineProjection(IEnumerable<new_baselineprojections> list)
@@ -224,27 +252,6 @@ namespace CRMProxyService.Entity
             //"__bo4200"
             proxyCovenant.ParentIDString = string.Format("{0}{1}", string.Empty, proxyCovenant.ParentID.ToString());
             proxyCovenant.ID = covenant.Id;
-
-            /*
-             * public DateTime EffectiveStartDate { get; set; }
-        [DataMember]
-        public DateTime EffectiveEndDate { get; set; }
-        [DataMember]
-        public string CovenantType { get; set; }
-        [DataMember]
-        public DateTime DueDate { get; set; }
-        [DataMember]
-        public DateTime CompliedDate { get; set; }
-        [DataMember]
-        public string Rating { get; set; }
-        [DataMember]
-        public string Remarks { get; set; }
-        [DataMember]
-        public int ParagraphNo { get; set; }
-        [DataMember]
-        public int AgreementSectionNo { get; set; }
-             */
-
             proxyCovenant.EffectiveStartDate = covenant.new_EffectiveStartDate;
             proxyCovenant.EffectiveEndDate = covenant.new_EffectiveEndDate;
             proxyCovenant.CovenantType = EnsureValueFromOptionSet(covenant,"new_covenanttype");

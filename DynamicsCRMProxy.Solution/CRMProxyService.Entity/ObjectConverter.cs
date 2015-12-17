@@ -22,14 +22,14 @@ namespace CRMProxyService.Entity
                 co.Description = orig.Description;
                 co.ProjectDescription = orig.new_ProjectDescription;
                 co.ProjectRationale = orig.new_ProjectRationale;
-                co.Country = EnsureValueFromOptionSet(orig,"new_country");
-                co.Region = EnsureValueFromOptionSet(orig,"new_region");
-                co.Sector = EnsureValueFromOptionSet(orig,"new_sector");
+                co.Country = EnsureValueFromOptionSet(orig, "new_country");
+                co.Region = EnsureValueFromOptionSet(orig, "new_region");
+                co.Sector = EnsureValueFromOptionSet(orig, "new_sector");
                 co.SubSector = EnsureValueFromOptionSet(orig, "new_subsector");
                 var selectedCurrency = context.TransactionCurrencySet.Where(x => x.TransactionCurrencyId == orig.TransactionCurrencyId.Id).FirstOrDefault();
                 co.Currency = selectedCurrency.CurrencyName;
                 //new_ApprovalLevel
-                co.ApprovalLevel = EnsureValueFromOptionSet(orig,"new_approvallevel");
+                co.ApprovalLevel = EnsureValueFromOptionSet(orig, "new_approvallevel");
                 //BudgetAmount
                 co.BudgetAmount = orig.BudgetAmount.HasValue ? orig.BudgetAmount.Value : 0;
                 //new_Guarantee
@@ -37,21 +37,21 @@ namespace CRMProxyService.Entity
                 //new_Borrower
                 co.Borrower = orig.new_Borrower;
                 //new_CategoryType
-                co.CategoryType = EnsureValueFromOptionSet(orig,"new_categorytype");
+                co.CategoryType = EnsureValueFromOptionSet(orig, "new_categorytype");
                 //new_ModeofFinancialAssistance
-                co.ModeOfFinancialAssistance = EnsureValueFromOptionSet(orig,"new_modeoffinancialassistance");
+                co.ModeOfFinancialAssistance = EnsureValueFromOptionSet(orig, "new_modeoffinancialassistance");
                 //new_ProcessingCategory
-                co.ProcessingCategory = EnsureValueFromOptionSet(orig,"new_processingcategory");
+                co.ProcessingCategory = EnsureValueFromOptionSet(orig, "new_processingcategory");
                 //new_ProcessingScenario
-                co.processingScenario = EnsureValueFromOptionSet(orig,"new_processingscenario");
+                co.processingScenario = EnsureValueFromOptionSet(orig, "new_processingscenario");
                 //new_ProjectStage
-                co.ProjectStage = EnsureValueFromOptionSet(orig,"new_projectstage");
+                co.ProjectStage = EnsureValueFromOptionSet(orig, "new_projectstage");
                 //new_expectedapprovalyear
-                co.ExpectedApprovalYear = EnsureValueFromOptionSet(orig,"new_expectedapprovalyear");
+                co.ExpectedApprovalYear = EnsureValueFromOptionSet(orig, "new_expectedapprovalyear");
                 //new_additionalfinancing
                 co.AdditionalFinancing = orig.new_AdditionalFinancing.HasValue ? (orig.new_AdditionalFinancing.Value ? "Yes" : "No") : string.Empty;
                 //statuscode
-                co.ProjectStatus = EnsureValueFromOptionSet(orig,"statuscode");
+                co.ProjectStatus = EnsureValueFromOptionSet(orig, "statuscode");
                 co.Department = orig.new_Department;
                 co.ClosingDate = orig.EstimatedCloseDate.HasValue ? orig.EstimatedCloseDate.Value : DateTime.MinValue;
                 co.Division = orig.new_Division;
@@ -72,7 +72,7 @@ namespace CRMProxyService.Entity
         private static string EnsureValueFromOptionSet(Microsoft.Xrm.Client.CrmEntity entity, string key)
         {
             if (entity.FormattedValues.ContainsKey(key))
-            { 
+            {
                 return entity.FormattedValues[key];
             }
             return string.Empty;
@@ -142,17 +142,24 @@ namespace CRMProxyService.Entity
         public static List<ProxyNSOCovenant> ConvertToNSOCovenant(IEnumerable<new_nsocovenant> list)
         {
             List<ProxyNSOCovenant> nsos = new List<ProxyNSOCovenant>();
-            foreach (var item in list)
+            foreach (var c in list)
             {
-                ProxyNSOCovenant cov = new ProxyNSOCovenant();
-                cov.CovenantDescription = item.new_Description;
-                cov.CovenantID = item.new_nsocovenantId.Value;
-                cov.Name = item.new_name;
-                cov.ParentID = (item.new_opportunity_new_nsocovenant != null) ? item.new_opportunity_new_nsocovenant.OpportunityId.Value : Guid.Empty;
-                cov.ParentIDString = string.Format("{0}{1}", "__bo4200", cov.ParentID.ToString());
+                ProxyNSOCovenant cov = SingleConvertToNSOCovenant(c);
                 nsos.Add(cov);
             }
             return nsos;
+        }
+
+        public static ProxyNSOCovenant SingleConvertToNSOCovenant(new_nsocovenant nso)
+        {
+            ProxyNSOCovenant covenant = new ProxyNSOCovenant();
+            covenant.CovenantDescription = nso.new_Description;
+            covenant.CovenantID = nso.new_nsocovenantId.Value;
+            covenant.Name = nso.new_name;
+            covenant.ParentID = (nso.new_opportunity_new_nsocovenant != null) ? nso.new_opportunity_new_nsocovenant.OpportunityId.Value : Guid.Empty;
+            covenant.ParentIDString = string.Format("{0}{1}", "__bo4200", covenant.ParentID.ToString());
+
+            return covenant;
         }
 
         public static List<ProxyBaselineProjection> ConvertToBaselineProjection(IEnumerable<new_baselineprojections> list)
@@ -194,20 +201,27 @@ namespace CRMProxyService.Entity
             return bps;
         }
 
-        public static List<ProxySOVCovenant> ConvertToSOVCovenant(IEnumerable<new_covenants> list)
+        public static List<ProxySOVCovenant> ConvertToSOVCovenant(IEnumerable<new_covenants> covenantList)
         {
             List<ProxySOVCovenant> nsos = new List<ProxySOVCovenant>();
-            foreach (var item in list)
+            foreach (var c in covenantList)
             {
-                ProxySOVCovenant cov = new ProxySOVCovenant();
-                cov.CovenantDescription = item.new_CovenantDescription;
-                cov.CovenantID = item.new_covenantsId.Value;
-                cov.Name = item.new_name;
-                cov.ParentID = (item.new_opportunity_new_covenants != null) ? item.new_opportunity_new_covenants.Id : Guid.Empty;
-                cov.ParentIDString = string.Format("{0}{1}", "__bo4200", cov.ParentID.ToString());
-                nsos.Add(cov);
+                ProxySOVCovenant coventant = SingleConvertToSOVCovenant(c);
+                nsos.Add(coventant);
             }
             return nsos;
+        }
+
+        public static ProxySOVCovenant SingleConvertToSOVCovenant(new_covenants covenant)
+        {
+
+            ProxySOVCovenant cov = new ProxySOVCovenant();
+            cov.CovenantDescription = covenant.new_CovenantDescription;
+            cov.CovenantID = covenant.new_covenantsId.Value;
+            cov.Name = covenant.new_name;
+            cov.ParentID = (covenant.new_opportunity_new_covenants != null) ? covenant.new_opportunity_new_covenants.Id : Guid.Empty;
+            cov.ParentIDString = string.Format("{0}{1}", "__bo4200", cov.ParentID.ToString());
+            return cov;
         }
     }
 }

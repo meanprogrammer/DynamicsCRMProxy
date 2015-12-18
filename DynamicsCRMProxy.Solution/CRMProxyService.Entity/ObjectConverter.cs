@@ -287,7 +287,7 @@ namespace CRMProxyService.Entity
             proxy.ModifiedOn = nsoImpact.ModifiedOn;
             proxy.PerformanceTargets = nsoImpact.new_Imp_PerformanceTargets;
             proxy.Problems = nsoImpact.new_Imp_Problems;
-            proxy.ProgressStatus = nsoImpact.new_Imp_ProgressStatus;
+            proxy.ProgressStatus = EnsureValueFromOptionSet(nsoImpact, "new_imp_progressstatus");//new_imp_progressstatus
             proxy.RecentDevelopment = nsoImpact.new_Imp_RecentDevelopment;
             proxy.ReportingEndDate = nsoImpact.new_Imp_ReportingEndDate;
             proxy.ReportingStartDate = nsoImpact.new_Imp_ReportingStartDate;

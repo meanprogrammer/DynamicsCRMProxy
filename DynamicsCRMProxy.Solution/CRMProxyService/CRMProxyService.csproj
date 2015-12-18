@@ -150,6 +150,7 @@
     <Content Include="Services\AccountService.svc" />
     <Content Include="Services\ConnectionService.svc" />
     <Content Include="Services\CovenantService.svc" />
+    <Content Include="Services\DMFService.svc" />
     <Content Include="Services\OpportunityService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -164,9 +165,13 @@
     <Compile Include="Services\CovenantService.svc.cs">
       <DependentUpon>CovenantService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Services\DMFService.svc.cs">
+      <DependentUpon>DMFService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Services\IAccountService.cs" />
     <Compile Include="Services\IConnectionService.cs" />
     <Compile Include="Services\ICovenantService.cs" />
+    <Compile Include="Services\IDMFService.cs" />
     <Compile Include="Services\IOpportunityService.cs" />
     <Compile Include="Services\OpportunityService.svc.cs">
       <DependentUpon>OpportunityService.svc</DependentUpon>

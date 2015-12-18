@@ -31,7 +31,7 @@ namespace CRMProxyService.Entity
                 //new_ApprovalLevel
                 co.ApprovalLevel = EnsureValueFromOptionSet(orig, "new_approvallevel");
                 //BudgetAmount
-                co.BudgetAmount = orig.BudgetAmount.HasValue ? orig.BudgetAmount.Value : 0;
+                co.BudgetAmount = orig.BudgetAmount.Value; // ? orig.BudgetAmount.Value : 0;
                 //new_Guarantee
                 co.Guarantee = orig.new_Guarantee.HasValue ? (orig.new_Guarantee.Value ? "Yes" : "No") : string.Empty;
                 //new_Borrower

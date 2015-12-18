@@ -39,17 +39,26 @@ namespace CRMProxyService.Services
 
         public IEnumerable<ProxyNSOOutcome> GetAllNSOOutcome()
         {
-            ProxyNSOOutcome proxy = null;
+            IEnumerable<ProxyNSOOutcome> list = new List<ProxyNSOOutcome>();
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {
-                
+                list = ObjectConverter.ConvertToProxyNSOOutcome(context.new_nsooutcomeSet.ToList());
             }
-            return null;
+            return list;
         }
 
         public Entity.ProxyNSOOutcome GetOneNSOOutcome(Guid id)
         {
-            throw new NotImplementedException();
+            ProxyNSOOutcome proxy = null;
+            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            {
+                var o = context.new_nsooutcomeSet.Where(c => c.Id == id).FirstOrDefault();
+                if (o != null)
+                {
+                    proxy = ObjectConverter.SingleConvertToProxyNSOOutcome(o);
+                }
+            }
+            return proxy;
         }
 
         public IEnumerable<Entity.ProxyNSOOutput> GetAllNSOOutput()

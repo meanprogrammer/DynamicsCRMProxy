@@ -310,5 +310,48 @@ namespace CRMProxyService.Entity
             return list;
         }
 
+        //Proxy NSO Outcome
+        public static ProxyNSOOutcome SingleConvertToProxyNSOOutcome(new_nsooutcome outcome)
+        {
+            ProxyNSOOutcome proxy = new ProxyNSOOutcome();
+            proxy.AchievedByYear = EnsureValueFromOptionSet(outcome, "new_achievedbyyear");
+            proxy.ActionTaken = outcome.new_Out_ProposedActionTaken;
+            proxy.AssessmentOfCurrentStatus = outcome.new_Out_AssessmentofCurrentStatus;
+            proxy.Assumptions = outcome.new_Out_Assumptions;
+            proxy.BaselineValue = outcome.new_BaselineYear;
+            proxy.BaselineYear = EnsureValueFromOptionSet(outcome, "new_baselineyear");
+            proxy.Classification = EnsureValueFromOptionSet(outcome, "new_imp_classification");
+            proxy.AchievementValue = outcome.new_Out_AchievementValue;
+            proxy.CumulativeValue = outcome.new_Out_CumulativeValue;
+            proxy.Date = outcome.new_Out_Date;
+            proxy.ID = outcome.Id;
+            proxy.OutcomeNo = outcome.new_name;
+            proxy.OutcomeStatement = outcome.new_OutcomeStatement;
+            proxy.Indicators = outcome.new_Out_Indicators;
+            proxy.ModifiedOn = outcome.ModifiedOn;
+            proxy.PerformanceTargets = outcome.new_Out_PerformanceTargets;
+            proxy.Problems = outcome.new_Out_Problems;
+            proxy.ProgressStatus = outcome.new_Out_ProgressStatus;
+            proxy.RecentDevelopment = outcome.new_Out_RecentDevelopment;
+            proxy.ReportingEndDate = outcome.new_Out_ReportingEndDate;
+            proxy.ReportingStartDate = outcome.new_Out_ReportingStartDate;
+            proxy.RiskAssessmentOfCurrentStatus = outcome.new_Out_RisksAssessmentofCurrentStatus;
+            proxy.Risks = outcome.new_Out_Risks;
+            proxy.UnitOfMeasurement = EnsureValueFromOptionSet(outcome, "new_imp_unitofmeasurement");
+            proxy.Value = outcome.new_Out_Value;
+
+            return proxy;
+        }
+
+        public static IEnumerable<ProxyNSOOutcome> ConvertToProxyNSOOutcome(IEnumerable<new_nsooutcome> outcomelist)
+        {
+            List<ProxyNSOOutcome> list = new List<ProxyNSOOutcome>();
+            foreach (new_nsooutcome o in outcomelist)
+            {
+                ProxyNSOOutcome proxy = SingleConvertToProxyNSOOutcome(o);
+                list.Add(proxy);
+            }
+            return list;
+        }
     }
 }

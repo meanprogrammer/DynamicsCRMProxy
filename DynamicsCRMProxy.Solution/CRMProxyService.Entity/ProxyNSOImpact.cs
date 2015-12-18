@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xrm.Sdk;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -60,5 +61,7 @@ namespace CRMProxyService.Entity
         public string RecentDevelopment { get; set; }
         [DataMember]
         public DateTime? Date { get; set; }
+        [DataMember]
+        public FormattedValueCollection FV { get; set; }
     }
 }

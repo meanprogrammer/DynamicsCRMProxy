@@ -265,5 +265,50 @@ namespace CRMProxyService.Entity
 
             return proxyCovenant;
         }
+
+        //Proxy NSO Impact
+        public static ProxyNSOImpact SingleConvertToProxyNSOImpact(new_nsoimpact nsoImpact)
+        {
+            ProxyNSOImpact proxy = new ProxyNSOImpact();
+            proxy.AchievedByYear = EnsureValueFromOptionSet(nsoImpact, "new_achievedbyyear");
+            proxy.ActionTaken = nsoImpact.new_Imp_ProposedActionTaken;
+            proxy.AssessmentOfCurrentStatus = nsoImpact.new_Imp_AssessmentofCurrentStatus;
+            proxy.Assumptions = nsoImpact.new_Imp_Assumptions;
+            proxy.BaselineValue = nsoImpact.new_Imp_BaselineValue;
+            proxy.BaselineYear = EnsureValueFromOptionSet(nsoImpact, "new_baselineyear");
+            proxy.Classification = EnsureValueFromOptionSet(nsoImpact, "new_imp_classification");
+            proxy.AchievementValue = nsoImpact.new_Imp_AchievementValue;
+            proxy.CumulativeValue = nsoImpact.new_Imp_CumulativeValue;
+            proxy.Date = nsoImpact.new_Imp_Date;
+            proxy.ID = nsoImpact.Id;
+            proxy.ImpactNo = nsoImpact.new_name;
+            proxy.ImpactStatement = nsoImpact.new_ImpactStatement;
+            proxy.Indicators = nsoImpact.new_Imp_Indicators;
+            proxy.ModifiedOn = nsoImpact.ModifiedOn;
+            proxy.PerformanceTargets = nsoImpact.new_Imp_PerformanceTargets;
+            proxy.Problems = nsoImpact.new_Imp_Problems;
+            proxy.ProgressStatus = nsoImpact.new_Imp_ProgressStatus;
+            proxy.RecentDevelopment = nsoImpact.new_Imp_RecentDevelopment;
+            proxy.ReportingEndDate = nsoImpact.new_Imp_ReportingEndDate;
+            proxy.ReportingStartDate = nsoImpact.new_Imp_ReportingStartDate;
+            proxy.RiskAssessmentOfCurrentStatus = nsoImpact.new_Imp_RisksAssessmentofCurrentStatus;
+            proxy.Risks = nsoImpact.new_Imp_Risks;
+            proxy.UnitOfMeasurement = EnsureValueFromOptionSet(nsoImpact, "new_imp_unitofmeasurement");
+            proxy.Value = nsoImpact.new_Imp_Value;
+
+            return proxy;
+        }
+
+        public static IEnumerable<ProxyNSOImpact> ConvertToProxyNSOImpact(IEnumerable<new_nsoimpact> nso)
+        {
+            List<ProxyNSOImpact> list = new List<ProxyNSOImpact>();
+            foreach (new_nsoimpact n in nso)
+            {
+                ProxyNSOImpact proxy = SingleConvertToProxyNSOImpact(n);
+                list.Add(proxy);
+            }
+            return list;
+        }
+
     }
 }

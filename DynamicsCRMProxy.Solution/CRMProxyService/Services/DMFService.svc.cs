@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRMProxyService.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -12,23 +13,36 @@ namespace CRMProxyService.Services
     public class DMFService : IDMFService
     {
 
-        public IEnumerable<Entity.ProxyNSOImpact> GetAllNSOImpact()
+        public IEnumerable<ProxyNSOImpact> GetAllNSOImpact()
         {
+            IEnumerable<ProxyNSOImpact> list = new List<ProxyNSOImpact>();
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
-            { 
+            {
+                list = ObjectConverter.ConvertToProxyNSOImpact(context.new_nsoimpactSet);
             }
-            return null;
+            return list;
         }
 
         public Entity.ProxyNSOImpact GetOneNSOImpact(Guid id)
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Entity.ProxyNSOOutcome> GetAllNSOOutcome()
-        {
+            ProxyNSOImpact proxy = null;
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {
+                var p = context.new_nsoimpactSet.Where(c => c.Id == id).FirstOrDefault();
+                if (p != null)
+                {
+                    proxy = ObjectConverter.SingleConvertToProxyNSOImpact(p);
+                }
+            }
+            return proxy;
+        }
+
+        public IEnumerable<ProxyNSOOutcome> GetAllNSOOutcome()
+        {
+            ProxyNSOOutcome proxy = null;
+            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            {
+                
             }
             return null;
         }

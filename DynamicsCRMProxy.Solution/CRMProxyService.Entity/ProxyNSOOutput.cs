@@ -23,23 +23,23 @@ namespace CRMProxyService.Entity
         [DataMember]
         public string BaselineYear { get; set; }
         [DataMember]
-        public int BaselineValue { get; set; }
+        public double? BaselineValue { get; set; }
         [DataMember]
         public string AchievedByYear { get; set; }
         [DataMember]
-        public double PerformanceTargets { get; set; }
+        public double? PerformanceTargets { get; set; }
         [DataMember]
         public string Classification { get; set; }
         [DataMember]
-        public string AchievementValue { get; set; }
+        public double? AchievementValue { get; set; }
         [DataMember]
-        public bool CumulativeValue { get; set; }
+        public bool? CumulativeValue { get; set; }
         [DataMember]
         public DateTime? ReportingStartDate { get; set; }
         [DataMember]
         public DateTime? ReportingEndDate { get; set; }
         [DataMember]
-        public double Value { get; set; }
+        public double? Value { get; set; }
         [DataMember]
         public string ProgressStatus { get; set; }
         [DataMember]
@@ -52,15 +52,16 @@ namespace CRMProxyService.Entity
         public string RiskAssessmentOfCurrentStatus { get; set; }
         [DataMember]
         public string AssessmentOfCurrentStatus { get; set; }
-        /*
-        [DataMember]
-        public string Problems { get; set; }
+        
+        
         [DataMember]
         public string ActionTaken { get; set; }
+        [DataMember]
+        public string Problems { get; set; }
         [DataMember]
         public string RecentDevelopment { get; set; }
         [DataMember]
         public DateTime? Date { get; set; }
-         */
+        
     }
 }

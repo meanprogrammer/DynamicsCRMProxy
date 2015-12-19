@@ -27,6 +27,8 @@ namespace CRMProxyService.Services
 
         public Entity.ProxyNSOImpact GetOneNSOImpact(Guid id)
         {
+            System.Runtime.Caching.ObjectCache cache = Microsoft.Xrm.Client.Caching.ObjectCacheManager.GetInstance();
+            Microsoft.Xrm.Client.Caching.ObjectCacheManager.Clear(cache);
             ProxyNSOImpact proxy = null;
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {

@@ -1,4 +1,5 @@
 ﻿using CRMProxyService.Entity;
+using CRMProxyService.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,7 @@ namespace CRMProxyService.Services
 
         public IEnumerable<ProxyNSOImpact> GetAllNSOImpact()
         {
-            System.Runtime.Caching.ObjectCache cache = Microsoft.Xrm.Client.Caching.ObjectCacheManager.GetInstance();
-            Microsoft.Xrm.Client.Caching.ObjectCacheManager.Clear(cache);
+            CacheHelper.ClearCache();
             IEnumerable<ProxyNSOImpact> list = new List<ProxyNSOImpact>();
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {
@@ -27,8 +27,7 @@ namespace CRMProxyService.Services
 
         public Entity.ProxyNSOImpact GetOneNSOImpact(Guid id)
         {
-            System.Runtime.Caching.ObjectCache cache = Microsoft.Xrm.Client.Caching.ObjectCacheManager.GetInstance();
-            Microsoft.Xrm.Client.Caching.ObjectCacheManager.Clear(cache);
+            CacheHelper.ClearCache();
             ProxyNSOImpact proxy = null;
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {

@@ -1,4 +1,5 @@
 ﻿using CRMProxyService.Entity;
+using CRMProxyService.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace CRMProxyService.Services
     {
         public IEnumerable<Entity.ProxySOVCovenant> GetAllSOVCovenant()
         {
+            CacheHelper.ClearCache();
             IEnumerable<ProxySOVCovenant> list = new List<ProxySOVCovenant>();
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {
@@ -24,6 +26,7 @@ namespace CRMProxyService.Services
 
         public Entity.ProxySOVCovenant GetOneSOVCovenant(Guid id)
         {
+            CacheHelper.ClearCache();
             ProxySOVCovenant covenant = null;
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {
@@ -38,6 +41,7 @@ namespace CRMProxyService.Services
 
         public IEnumerable<Entity.ProxyNSOCovenant> GetAllNSOCovenant()
         {
+            CacheHelper.ClearCache();
             IEnumerable<ProxyNSOCovenant> list = new List<ProxyNSOCovenant>();
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {
@@ -48,6 +52,7 @@ namespace CRMProxyService.Services
 
         public Entity.ProxyNSOCovenant GetOneNSOCovenant(Guid id)
         {
+            CacheHelper.ClearCache();
             ProxyNSOCovenant covenant = null;
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {

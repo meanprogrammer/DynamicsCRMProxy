@@ -42,6 +42,7 @@ namespace CRMProxyService.Services
 
         public IEnumerable<ProxyNSOOutcome> GetAllNSOOutcome()
         {
+            CacheHelper.ClearCache();
             IEnumerable<ProxyNSOOutcome> list = new List<ProxyNSOOutcome>();
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {
@@ -52,6 +53,7 @@ namespace CRMProxyService.Services
 
         public Entity.ProxyNSOOutcome GetOneNSOOutcome(Guid id)
         {
+            CacheHelper.ClearCache();
             ProxyNSOOutcome proxy = null;
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {
@@ -66,6 +68,7 @@ namespace CRMProxyService.Services
 
         public IEnumerable<Entity.ProxyNSOOutput> GetAllNSOOutput()
         {
+            CacheHelper.ClearCache();
             IEnumerable<ProxyNSOOutput> list = new List<ProxyNSOOutput>();
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {
@@ -76,6 +79,7 @@ namespace CRMProxyService.Services
 
         public Entity.ProxyNSOOutput GetOneNSOOutput(Guid id)
         {
+            CacheHelper.ClearCache();
             ProxyNSOOutput proxy = null;
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {

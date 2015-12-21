@@ -320,7 +320,7 @@ namespace CRMProxyService.Entity
             proxy.Assumptions = outcome.new_Out_Assumptions;
             proxy.BaselineValue = outcome.new_BaselineYear;
             proxy.BaselineYear = EnsureValueFromOptionSet(outcome, "new_baselineyear");
-            proxy.Classification = EnsureValueFromOptionSet(outcome, "new_imp_classification");
+            proxy.Classification = EnsureValueFromOptionSet(outcome, "new_out_classification");
             proxy.AchievementValue = outcome.new_Out_AchievementValue;
             proxy.CumulativeValue = outcome.new_Out_CumulativeValue;
             proxy.Date = outcome.new_Out_Date;
@@ -337,7 +337,7 @@ namespace CRMProxyService.Entity
             proxy.ReportingStartDate = outcome.new_Out_ReportingStartDate;
             proxy.RiskAssessmentOfCurrentStatus = outcome.new_Out_RisksAssessmentofCurrentStatus;
             proxy.Risks = outcome.new_Out_Risks;
-            proxy.UnitOfMeasurement = EnsureValueFromOptionSet(outcome, "new_imp_unitofmeasurement");
+            proxy.UnitOfMeasurement = EnsureValueFromOptionSet(outcome, "new_out_unitofmeasurement");
             proxy.Value = outcome.new_Out_Value;
 
             return proxy;

@@ -64,5 +64,38 @@ namespace CRMProxyService.Services
             }
             return covenant;
         }
+
+
+        public void UpdateSOVCovenant(ProxySOVCovenant covenant)
+        {
+            CacheHelper.ClearCache();
+            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            {
+                var c = (from s in context.new_covenantsSet
+                         where s.Id == covenant.ID
+                           select s).FirstOrDefault();
+                if (c != null)
+                {
+                    context.UpdateObject(c);
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public void UpdateNSOCovenant(ProxyNSOCovenant covenant)
+        {
+            CacheHelper.ClearCache();
+            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            {
+                var c = (from s in context.new_nsocovenantSet
+                         where s.Id == covenant.ID
+                         select s).FirstOrDefault();
+                if (c != null)
+                {
+                    context.UpdateObject(c);
+                    context.SaveChanges();
+                }
+            }
+        }
     }
 }

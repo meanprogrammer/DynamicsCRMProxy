@@ -91,5 +91,54 @@ namespace CRMProxyService.Services
             }
             return proxy;
         }
+
+
+        public void UpdateNSOImpact(ProxyNSOImpact impact)
+        {
+            CacheHelper.ClearCache();
+            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            {
+                var i = (from s in context.new_nsoimpactSet
+                         where s.Id == impact.ID
+                         select s).FirstOrDefault();
+                if (i != null)
+                {
+                    context.UpdateObject(i);
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public void UpdateNSOOutcome(ProxyNSOOutcome outcome)
+        {
+            CacheHelper.ClearCache();
+            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            {
+                var o = (from s in context.new_nsooutcomeSet
+                         where s.Id == outcome.ID
+                         select s).FirstOrDefault();
+                if (o != null)
+                {
+                    context.UpdateObject(o);
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public void UpdateNSOOutput(ProxyNSOOutput output)
+        {
+            CacheHelper.ClearCache();
+            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            {
+                var o = (from s in context.new_nsooutputSet
+                         where s.Id == output.ID
+                         select s).FirstOrDefault();
+                if (o != null)
+                {
+                    context.UpdateObject(o);
+                    context.SaveChanges();
+                }
+            }
+        }
     }
 }

@@ -19,15 +19,24 @@ namespace CRMProxyService.Services
         ProxyNSOImpact GetOneNSOImpact(Guid id);
 
         [OperationContract]
+        void UpdateNSOImpact(ProxyNSOImpact impact);
+
+        [OperationContract]
         IEnumerable<ProxyNSOOutcome> GetAllNSOOutcome();
 
         [OperationContract]
         ProxyNSOOutcome GetOneNSOOutcome(Guid id);
 
         [OperationContract]
+        void UpdateNSOOutcome(ProxyNSOOutcome outcome);
+
+        [OperationContract]
         IEnumerable<ProxyNSOOutput> GetAllNSOOutput();
 
         [OperationContract]
         ProxyNSOOutput GetOneNSOOutput(Guid id);
+
+        [OperationContract]
+        void UpdateNSOOutput(ProxyNSOOutput output);
     }
 }

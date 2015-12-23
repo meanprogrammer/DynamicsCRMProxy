@@ -19,9 +19,15 @@ namespace CRMProxyService.Services
         ProxySOVCovenant GetOneSOVCovenant(Guid id);
 
         [OperationContract]
+        void UpdateSOVCovenant(ProxySOVCovenant covenant);
+
+        [OperationContract]
         IEnumerable<ProxyNSOCovenant> GetAllNSOCovenant();
 
         [OperationContract]
         ProxyNSOCovenant GetOneNSOCovenant(Guid id);
+
+        [OperationContract]
+        void UpdateNSOCovenant(ProxyNSOCovenant covenant);
     }
 }

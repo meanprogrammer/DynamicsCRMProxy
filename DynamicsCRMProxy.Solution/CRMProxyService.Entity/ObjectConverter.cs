@@ -144,6 +144,8 @@ namespace CRMProxyService.Entity
                 pc.ID = connection.Id;
                 pc.Role = connection.Record2RoleId != null ? connection.Record2RoleId.Name : string.Empty;
                 pc.OpportunityId = connection.Record1Id != null ? connection.Record1Id.Id.ToString() : Guid.Empty.ToString();
+                pc.RealConnection = connection;
+                /*
                 if ((connection.Record2Id != null) && (!string.IsNullOrEmpty(connection.Record2Id.LogicalName)))
                 {
                     if (connection.Record2RoleId.LogicalName.Equals("contact", StringComparison.InvariantCultureIgnoreCase))
@@ -172,6 +174,7 @@ namespace CRMProxyService.Entity
                         }
                     }
                 }
+                 * */
 
             }
             return pc;

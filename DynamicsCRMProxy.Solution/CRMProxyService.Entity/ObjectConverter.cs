@@ -80,15 +80,24 @@ namespace CRMProxyService.Entity
 
         public static ProxyAccount SingleConvertToProxyAccount(Account account)
         {
-            ProxyAccount acct = new ProxyAccount();
-            acct.AccountName = account.Name;
-            acct.EntityRole = EnsureValueFromOptionSet(account, "new_agencyrole");
-            acct.ID = account.Id;
-            acct.ParentID = (account.new_opportunity_account != null) ? account.new_opportunity_account.Id.ToString() : Guid.Empty.ToString();
-            acct.IDstring = acct.ID.ToString();
-            acct.Country = EnsureValueFromOptionSet(account, "new_agencycountry");
+            ProxyAccount proxy = new ProxyAccount();
+            proxy.AccountName = account.Name;
+            proxy.EntityRole = EnsureValueFromOptionSet(account, "new_agencyrole");
+            proxy.ID = account.Id;
+            proxy.ParentID = (account.new_opportunity_account != null) ? account.new_opportunity_account.Id.ToString() : Guid.Empty.ToString();
+            proxy.IDstring = proxy.ID.ToString();
+            proxy.Country = EnsureValueFromOptionSet(account, "new_agencycountry");
+            proxy.InvolvementInProject = EnsureValueFromOptionSet(account, "new_involvementinproject"); //account.new_InvolvementinProject
 
-            return acct;
+            proxy.Address1_Street1 = EnsureValueFromOptionSet(account, "address1_line1");
+            proxy.Address1_Street2 = EnsureValueFromOptionSet(account, "address1_line2");
+            proxy.Address1_Street3 = EnsureValueFromOptionSet(account, "address1_line3");
+            proxy.Address1_City = EnsureValueFromOptionSet(account, "address1_city");
+            proxy.Address1_StateProvince = EnsureValueFromOptionSet(account, "address1_stateorprovince");
+            proxy.Address1_ZipCode = EnsureValueFromOptionSet(account, "address1_postalcode");
+            proxy.Address1_CountryRegion = EnsureValueFromOptionSet(account, "address1_country");
+
+            return proxy;
 
         }
 

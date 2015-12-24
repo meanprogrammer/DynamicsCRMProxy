@@ -144,7 +144,34 @@ namespace CRMProxyService.Entity
                 pc.ID = connection.Id;
                 pc.Role = connection.Record2RoleId != null ? connection.Record2RoleId.Name : string.Empty;
                 pc.OpportunityId = connection.Record1Id != null ? connection.Record1Id.Id.ToString() : Guid.Empty.ToString();
-                pc.Fullname = connection.Record2Id.LogicalName;
+                if ((connection.Record2Id != null) && (!string.IsNullOrEmpty(connection.Record2Id.LogicalName)))
+                {
+                    if (connection.Record2RoleId.LogicalName.Equals("contact", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        using (Xrm.XrmServiceContext context = new XrmServiceContext("Xrm"))
+                        {
+                            var contact = context.ContactSet.Where(c => c.Id == connection.Record2Id.Id).FirstOrDefault();
+                            if (contact != null)
+                            {
+                                pc.Fullname = contact.FullName;
+                                pc.JobTitle = contact.JobTitle;
+                                pc.AccountName = contact.contact_customer_accounts != null ? contact.contact_customer_accounts.Name : string.Empty;
+                                pc.Email = contact.EMailAddress1;
+                                pc.BusinessPhone = contact.Business2;
+                                pc.MobilePhone = contact.MobilePhone;
+                                pc.Fax = contact.Fax;
+                                pc.PreferedMethodofContact = EnsureValueFromOptionSet(contact, "preferredcontactmethodcode"); // contact.PreferredContactMethodCode
+                                pc.Address1_Street1 = contact.Address1_Line1;
+                                pc.Address1_Street2 = contact.Address1_Line2;
+                                pc.Address1_Street3 = contact.Address1_Line3;
+                                pc.Address1_City = contact.Address1_City;
+                                pc.Address1_StateProvince = contact.Address1_StateOrProvince;
+                                pc.Address1_ZipCode = contact.Address1_PostalCode;
+                                pc.Address1_CountryRegion = contact.Address1_Country;
+                            }
+                        }
+                    }
+                }
 
             }
             return pc;

@@ -301,7 +301,7 @@ namespace CRMProxyService.Entity
             proxyCovenant.Remarks = EnsureValueFromOptionSet(covenant, "new_remarks");
             proxyCovenant.ParagraphNo = covenant.new_ParagraphNo;
             proxyCovenant.AgreementSectionNo = covenant.new_AgreementSectionNo;
-            proxyCovenant.att = covenant.Attributes;
+            proxyCovenant.att = covenant.GetAttributeCollectionValue<new_covenants>("new_remarks");
 
             return proxyCovenant;
         }

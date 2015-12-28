@@ -76,6 +76,12 @@ namespace CRMProxyService.Services
                            select s).FirstOrDefault();
                 if (c != null)
                 {
+                    c.new_CompiledDate = covenant.CompliedDate;
+                    c.new_Rating = covenant.Rating;
+                    //c.new_Remarks = covenant.Remarks;
+                    c.new_ParagraphNo = covenant.ParagraphNo;
+                    c.new_AgreementSectionNo = covenant.AgreementSectionNo;
+
                     context.UpdateObject(c);
                     context.SaveChanges();
                 }
@@ -92,6 +98,13 @@ namespace CRMProxyService.Services
                          select s).FirstOrDefault();
                 if (c != null)
                 {
+                    //c.new_CompliedWith = covenant.CompliedWith;
+                    c.new_Description = covenant.CovenantDescription;
+                    //c.new_CovenantType = covenant.CovenantType;
+                    c.new_DueDate = covenant.DueDate;
+                    //c.new_FrequencyofReview = covenant.FrequencyOfReview;
+                    c.new_name = covenant.Name;
+                    //covenant.
                     context.UpdateObject(c);
                     context.SaveChanges();
                 }

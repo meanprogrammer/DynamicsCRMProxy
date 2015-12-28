@@ -45,6 +45,6 @@ namespace CRMProxyService.Entity
         [DataMember]
         public List<Xrm.DynamicPropertyOptionSetItem> optionset { get; set; }*/
         [DataMember]
-        public IEnumerable<Xrm.new_covenants> att { get; set; }
+        public Xrm.new_covenants att { get; set; }
     }
 }

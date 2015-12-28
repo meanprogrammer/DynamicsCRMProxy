@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xrm.Sdk;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -44,6 +45,6 @@ namespace CRMProxyService.Entity
         [DataMember]
         public List<Xrm.DynamicPropertyOptionSetItem> optionset { get; set; }*/
         [DataMember]
-        public Xrm.new_covenants att { get; set; }
+        public AttributeCollection att { get; set; }
     }
 }

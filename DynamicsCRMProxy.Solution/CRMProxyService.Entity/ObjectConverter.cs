@@ -304,7 +304,7 @@ namespace CRMProxyService.Entity
 
             using (Xrm.XrmServiceContext context = new XrmServiceContext("Xrm"))
             {
-                proxyCovenant.picklist = context.PickListMappingSet.ToList();
+                proxyCovenant.picklist = context.PickListMappingSet.FirstOrDefault();
             }
 
             return proxyCovenant;

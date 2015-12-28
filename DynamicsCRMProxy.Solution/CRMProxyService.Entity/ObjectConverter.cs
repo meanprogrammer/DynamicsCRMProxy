@@ -302,9 +302,6 @@ namespace CRMProxyService.Entity
             proxyCovenant.ParagraphNo = covenant.new_ParagraphNo;
             proxyCovenant.AgreementSectionNo = covenant.new_AgreementSectionNo;
             proxyCovenant.att = covenant;
-            using (Xrm.XrmServiceContext context = new XrmServiceContext("Xrm"))
-            {
-            }
 
             return proxyCovenant;
         }

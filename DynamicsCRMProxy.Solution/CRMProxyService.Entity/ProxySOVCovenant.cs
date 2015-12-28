@@ -41,6 +41,6 @@ namespace CRMProxyService.Entity
         [DataMember]
         public double? AgreementSectionNo { get; set; }
         [DataMember]
-        public Xrm.PickListMapping picklist { get; set; }
+        public List<Xrm.DynamicPropertyOptionSetItem> optionset { get; set; }
     }
 }

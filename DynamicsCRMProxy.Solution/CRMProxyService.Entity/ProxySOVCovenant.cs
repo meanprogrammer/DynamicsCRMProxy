@@ -40,7 +40,10 @@ namespace CRMProxyService.Entity
         public int? ParagraphNo { get; set; }
         [DataMember]
         public double? AgreementSectionNo { get; set; }
+        /*
         [DataMember]
-        public List<Xrm.DynamicPropertyOptionSetItem> optionset { get; set; }
+        public List<Xrm.DynamicPropertyOptionSetItem> optionset { get; set; }*/
+        [DataMember]
+        public object att { get; set; }
     }
 }

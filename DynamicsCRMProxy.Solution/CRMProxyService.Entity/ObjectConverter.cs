@@ -298,10 +298,10 @@ namespace CRMProxyService.Entity
             proxyCovenant.DueDate = covenant.new_DueDate;
             proxyCovenant.CompliedDate = covenant.new_CompiledDate;
             proxyCovenant.Rating = covenant.new_Rating;
-            proxyCovenant.Remarks = EnsureValueFromOptionSet(covenant, "new_remarks");
+            proxyCovenant.Remarks = covenant.new_Remarks; //EnsureValueFromOptionSet(covenant, "new_remarks");
             proxyCovenant.ParagraphNo = covenant.new_ParagraphNo;
             proxyCovenant.AgreementSectionNo = covenant.new_AgreementSectionNo;
-            proxyCovenant.att = covenant.GetAttributeValue<new_covenants>("new_remarks");
+
 
             return proxyCovenant;
         }

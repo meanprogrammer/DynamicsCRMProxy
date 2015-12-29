@@ -36,15 +36,10 @@ namespace CRMProxyService.Entity
         [DataMember]
         public string Rating { get; set; }
         [DataMember]
-        public string Remarks { get; set; }
+        public int? Remarks { get; set; }
         [DataMember]
         public int? ParagraphNo { get; set; }
         [DataMember]
         public double? AgreementSectionNo { get; set; }
-        /*
-        [DataMember]
-        public List<Xrm.DynamicPropertyOptionSetItem> optionset { get; set; }*/
-        [DataMember]
-        public Xrm.new_covenants att { get; set; }
     }
 }

@@ -98,13 +98,18 @@ namespace CRMProxyService.Services
                          select s).FirstOrDefault();
                 if (c != null)
                 {
-                    //c.new_CompliedWith = covenant.CompliedWith;
-                    c.new_Description = covenant.CovenantDescription;
+                    //c.new_Status = covenant.Status;
+                    //c.new_CompliedWith = Convert.ToInt32(covenant.CompliedWith);
+
+
+                    //c.new_Description = covenant.CovenantDescription;
                     //c.new_CovenantType = covenant.CovenantType;
                     c.new_DueDate = covenant.DueDate;
                     //c.new_FrequencyofReview = covenant.FrequencyOfReview;
-                    c.new_name = covenant.Name;
+                    //c.new_name = covenant.Name;
                     //covenant.
+                    c.new_SubmissionDate = covenant.SubmissionDate;
+                    
                     context.UpdateObject(c);
                     context.SaveChanges();
                 }

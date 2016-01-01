@@ -103,6 +103,19 @@ namespace CRMProxyService.Services
                          select s).FirstOrDefault();
                 if (i != null)
                 {
+                    i.new_Imp_ProgressStatus = impact.ProgressStatus;
+                    i.new_Imp_Assumptions = impact.Assumptions;
+                    i.new_Imp_Risks = impact.Risks;
+                    i.new_Imp_AssessmentofCurrentStatus = impact.AssessmentOfCurrentStatus;
+                    i.new_Imp_RisksAssessmentofCurrentStatus = impact.RiskAssessmentOfCurrentStatus;
+
+                    i.new_Imp_Problems = impact.Problems;
+                    i.new_Imp_ProposedActionTaken = impact.ActionTaken;
+                    i.new_Imp_RecentDevelopment = impact.RecentDevelopment;
+                    i.new_Imp_Date = impact.Date;
+
+
+
                     context.UpdateObject(i);
                     context.SaveChanges();
                 }
@@ -119,6 +132,18 @@ namespace CRMProxyService.Services
                          select s).FirstOrDefault();
                 if (o != null)
                 {
+                    
+                    o.new_Out_ProgressStatus = outcome.ProgressStatus;
+                    o.new_Out_Assumptions = outcome.Assumptions;
+                    o.new_Out_Risks = outcome.Risks;
+                    o.new_Out_AssessmentofCurrentStatus = outcome.AssessmentOfCurrentStatus;
+                    o.new_Out_RisksAssessmentofCurrentStatus = outcome.RiskAssessmentOfCurrentStatus;
+
+                    o.new_Out_Problems = outcome.Problems;
+                    o.new_Out_ProposedActionTaken = outcome.ActionTaken;
+                    o.new_Out_RecentDevelopment = outcome.RecentDevelopment;
+                    o.new_Out_Date = outcome.Date;
+
                     context.UpdateObject(o);
                     context.SaveChanges();
                 }

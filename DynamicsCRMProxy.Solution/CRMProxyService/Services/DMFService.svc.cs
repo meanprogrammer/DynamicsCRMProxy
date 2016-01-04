@@ -160,6 +160,17 @@ namespace CRMProxyService.Services
                          select s).FirstOrDefault();
                 if (o != null)
                 {
+                    o.new_Outp_ProgressStatus = output.ProgressStatus;
+                    o.new_Outp_Assumptions = output.Assumptions;
+                    o.new_Outp_Risks = output.Risks;
+                    o.new_Outp_AssessmentofCurrentStatus = output.AssessmentOfCurrentStatus;
+                    o.new_Outp_RisksAssessmentofCurrentStatus = output.RiskAssessmentOfCurrentStatus;
+
+                    o.new_Outp_Problems = output.Problems;
+                    o.new_Outp_ProposedActionTaken = output.ActionTaken;
+                    o.new_Outp_RecentDevelopment = output.RecentDevelopment;
+                    o.new_Outp_Date = output.Date;
+
                     context.UpdateObject(o);
                     context.SaveChanges();
                 }

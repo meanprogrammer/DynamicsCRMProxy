@@ -335,7 +335,6 @@ namespace CRMProxyService.Entity
             proxy.Risks = nsoImpact.new_Imp_Risks;
             proxy.UnitOfMeasurement = EnsureValueFromOptionSet(nsoImpact, "new_imp_unitofmeasurement");
             proxy.Value = nsoImpact.new_Imp_Value;
-            proxy.FV = nsoImpact.FormattedValues;
             return proxy;
         }
 

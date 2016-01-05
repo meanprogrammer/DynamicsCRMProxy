@@ -61,7 +61,5 @@ namespace CRMProxyService.Entity
         public string RecentDevelopment { get; set; }
         [DataMember]
         public DateTime? Date { get; set; }
-        [DataMember]
-        public FormattedValueCollection FV { get; set; }
     }
 }

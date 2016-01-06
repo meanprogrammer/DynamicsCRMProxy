@@ -1,4 +1,5 @@
 ﻿using CRMProxyService.Entity;
+using CRMProxyService.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace CRMProxyService.Services
     {
         public List<ProxyConnection> GetAllConnection()
         {
+            CacheHelper.ClearCache();
             List<ProxyConnection> proxies = new List<ProxyConnection>();
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {
@@ -24,6 +26,7 @@ namespace CRMProxyService.Services
 
         public Entity.ProxyConnection GetOneConnection(Guid id)
         {
+            CacheHelper.ClearCache();
             ProxyConnection conn = null;
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             { 

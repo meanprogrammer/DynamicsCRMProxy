@@ -51,5 +51,8 @@ namespace CRMProxyService.Entity
         public string Address1_ZipCode { get; set; }
         [DataMember]
         public string Address1_CountryRegion { get; set; }
+
+        [DataMember]
+        public Xrm.Contact Contact { get; set; }
     }
 }

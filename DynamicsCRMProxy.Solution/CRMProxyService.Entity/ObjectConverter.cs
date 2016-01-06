@@ -154,6 +154,7 @@ namespace CRMProxyService.Entity
                             var contact = context.ContactSet.Where(c => c.Id == connection.Record2Id.Id).FirstOrDefault();
                             if (contact != null)
                             {
+                                pc.Contact = contact;
                                 pc.Fullname = contact.FullName;
                                 pc.JobTitle = contact.JobTitle;
                                 pc.AccountName = contact.contact_customer_accounts != null ? contact.contact_customer_accounts.Name : string.Empty;

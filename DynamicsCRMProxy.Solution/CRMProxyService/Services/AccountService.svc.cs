@@ -1,4 +1,5 @@
 ﻿using CRMProxyService.Entity;
+using CRMProxyService.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace CRMProxyService.Services
 
         public List<ProxyAccount> GetAllAccounts()
         {
+            CacheHelper.ClearCache();
             var xrm = new XrmServiceContext("Xrm");
             return ObjectConverter.ConvertToProxyAccount(xrm.AccountSet.ToList());
         }
@@ -23,6 +25,7 @@ namespace CRMProxyService.Services
 
         public ProxyAccount GetOneAccount(Guid id)
         {
+            CacheHelper.ClearCache();
             var xrm = new XrmServiceContext("Xrm");
             Account ac = xrm.AccountSet.Where(x => x.Id == id).FirstOrDefault();
             return ObjectConverter.SingleConvertToProxyAccount(ac);

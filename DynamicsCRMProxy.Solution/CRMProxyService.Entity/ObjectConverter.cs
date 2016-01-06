@@ -154,12 +154,11 @@ namespace CRMProxyService.Entity
                             var contact = context.ContactSet.Where(c => c.Id == connection.Record2Id.Id).FirstOrDefault();
                             if (contact != null)
                             {
-                                pc.Contact = contact;
                                 pc.Fullname = contact.FullName;
                                 pc.JobTitle = contact.JobTitle;
                                 pc.AccountName = contact.contact_customer_accounts != null ? contact.contact_customer_accounts.Name : string.Empty;
                                 pc.Email = contact.EMailAddress1;
-                                pc.BusinessPhone = contact.Business2;
+                                pc.BusinessPhone = contact.Telephone1;
                                 pc.MobilePhone = contact.MobilePhone;
                                 pc.Fax = contact.Fax;
                                 pc.PreferedMethodofContact = EnsureValueFromOptionSet(contact, "preferredcontactmethodcode"); // contact.PreferredContactMethodCode

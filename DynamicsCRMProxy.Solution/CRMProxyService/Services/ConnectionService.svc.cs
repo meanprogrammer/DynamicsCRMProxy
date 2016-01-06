@@ -35,5 +35,11 @@ namespace CRMProxyService.Services
             }
             return conn;
         }
+
+
+        public void UpdateOneConnection(ProxyConnection c)
+        {
+            
+        }
     }
 }

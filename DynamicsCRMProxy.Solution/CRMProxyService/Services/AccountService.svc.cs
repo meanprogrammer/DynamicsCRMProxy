@@ -27,5 +27,11 @@ namespace CRMProxyService.Services
             Account ac = xrm.AccountSet.Where(x => x.Id == id).FirstOrDefault();
             return ObjectConverter.SingleConvertToProxyAccount(ac);
         }
+
+
+        public void UpdateOneAccount(ProxyAccount account)
+        {
+           
+        }
     }
 }

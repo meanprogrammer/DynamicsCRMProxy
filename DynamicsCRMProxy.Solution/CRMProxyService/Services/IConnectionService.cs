@@ -17,5 +17,8 @@ namespace CRMProxyService.Services
 
         [OperationContract]
         ProxyConnection GetOneConnection(Guid id);
+
+        [OperationContract]
+        void UpdateOneConnection(ProxyConnection c);
     }
 }

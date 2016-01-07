@@ -14,7 +14,7 @@ namespace CRMProxyService.Entity
         [DataMember]
         public Guid Id { get; set; }
         [DataMember]
-        public Guid OpportunityId { get; set; }
+        public Guid? OpportunityId { get; set; }
         [DataMember]
         public string Name { get; set; }
         [DataMember]
@@ -36,7 +36,7 @@ namespace CRMProxyService.Entity
         [DataMember]
         public string ApprovalLevel { get; set; }
         [DataMember]
-        public decimal BudgetAmount { get; set; }
+        public decimal? BudgetAmount { get; set; }
         [DataMember]
         public string Guarantee { get; set; }
         [DataMember]
@@ -69,7 +69,7 @@ namespace CRMProxyService.Entity
         [DataMember]
         public string DivisionRole { get; set; }
         [DataMember]
-        public DateTime ClosingDate { get; set; }
+        public DateTime? ClosingDate { get; set; }
         [DataMember]
         public decimal ADBFinancing { get; set; }
 

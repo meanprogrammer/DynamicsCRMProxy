@@ -17,7 +17,7 @@ namespace CRMProxyService.Entity
             {
 
                 co.Id = orig.Id;
-                co.OpportunityId = orig.OpportunityId.HasValue ? orig.OpportunityId.Value : Guid.Empty;
+                co.OpportunityId = orig.OpportunityId;
                 co.Name = orig.Name;
                 co.Description = orig.Description;
                 co.ProjectDescription = orig.new_ProjectDescription;
@@ -31,9 +31,9 @@ namespace CRMProxyService.Entity
                 //new_ApprovalLevel
                 co.ApprovalLevel = EnsureValueFromOptionSet(orig, "new_approvallevel");
                 //BudgetAmount
-                co.BudgetAmount = orig.BudgetAmount.Value; // ? orig.BudgetAmount.Value : 0;
+                co.BudgetAmount = orig.BudgetAmount; // ? orig.BudgetAmount.Value : 0;
                 //new_Guarantee
-                co.Guarantee = orig.new_Guarantee.HasValue ? (orig.new_Guarantee.Value ? "Yes" : "No") : string.Empty;
+                co.Guarantee =  orig.new_Guarantee.HasValue ? (orig.new_Guarantee.Value ? "Yes" : "No") : string.Empty;
                 //new_Borrower
                 co.Borrower = orig.new_Borrower;
                 //new_CategoryType
@@ -53,7 +53,7 @@ namespace CRMProxyService.Entity
                 //statuscode
                 co.ProjectStatus = EnsureValueFromOptionSet(orig, "statuscode");
                 co.Department = orig.new_Department;
-                co.ClosingDate = orig.EstimatedCloseDate.HasValue ? orig.EstimatedCloseDate.Value : DateTime.MinValue;
+                co.ClosingDate = orig.EstimatedCloseDate;
                 co.Division = orig.new_Division;
                 co.DivisionRole = EnsureValueFromOptionSet(orig, "new_divisionrole");
 

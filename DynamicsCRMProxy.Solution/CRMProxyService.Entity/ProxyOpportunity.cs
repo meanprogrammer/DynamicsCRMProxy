@@ -76,11 +76,11 @@ namespace CRMProxyService.Entity
         //Agencies
         /*[DataMember]
         public ProxyAccount[] Agencies { get; set; }*/
-        
+
         /*
         public List<ProxyNSOCovenant> NSOCovenants { get; set; }
         [DataMember]
-        public List<ProxySOVCovenant> SOVCovenants { get; set; }*/
+        public List<ProxySOVCovenant> SOVCovenants { get; set; }
         [DataMember]
         public Xrm.Opportunity RealOpportunity { get; set; }
 
@@ -91,6 +91,6 @@ namespace CRMProxyService.Entity
         public IEnumerable<Xrm.Connection> c1 { get; set; }
 
         [DataMember]
-        public IEnumerable<Xrm.Connection> c2 { get; set; }
+        public IEnumerable<Xrm.Connection> c2 { get; set; }*/
     }
 }

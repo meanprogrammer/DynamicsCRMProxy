@@ -335,6 +335,8 @@ namespace CRMProxyService.Entity
             proxy.Risks = nsoImpact.new_Imp_Risks;
             proxy.UnitOfMeasurement = EnsureValueFromOptionSet(nsoImpact, "new_imp_unitofmeasurement");
             proxy.Value = nsoImpact.new_Imp_Value;
+            proxy.OpportunityID = nsoImpact.new_opportunity_new_nsoimpact != null ? nsoImpact.new_opportunity_new_nsoimpact.Id : Guid.Empty;
+            proxy.OpportunityIDString = proxy.OpportunityID.ToString();
             return proxy;
         }
 

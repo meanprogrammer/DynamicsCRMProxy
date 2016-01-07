@@ -62,6 +62,11 @@ namespace CRMProxyService.Entity
         public string RecentDevelopment { get; set; }
         [DataMember]
         public DateTime? Date { get; set; }
+
+        [DataMember]
+        public Guid OpportunityID { get; set; }
+        [DataMember]
+        public string OpportunityIDString { get; set; }
         
     }
 }

@@ -380,7 +380,8 @@ namespace CRMProxyService.Entity
             proxy.Risks = outcome.new_Out_Risks;
             proxy.UnitOfMeasurement = EnsureValueFromOptionSet(outcome, "new_out_unitofmeasurement");
             proxy.Value = outcome.new_Out_Value;
-
+            proxy.OpportunityID = outcome.new_opportunity_new_nsooutcome != null ? outcome.new_opportunity_new_nsooutcome.Id : Guid.Empty;
+            proxy.OpportunityIDString = proxy.OpportunityID.ToString();
             return proxy;
         }
 
@@ -424,7 +425,8 @@ namespace CRMProxyService.Entity
             proxy.Risks = output.new_Outp_Risks;
             proxy.UnitOfMeasurement = EnsureValueFromOptionSet(output, "new_outp_unitofmeasurement");
             proxy.Value = output.new_Outp_Value;
-
+            proxy.OpportunityID = output.new_opportunity_new_nsooutput != null ? output.new_opportunity_new_nsooutput.Id : Guid.Empty;
+            proxy.OpportunityIDString = proxy.OpportunityID.ToString();
             return proxy;
         }
 

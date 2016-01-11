@@ -73,6 +73,13 @@ namespace CRMProxyService.Entity
         [DataMember]
         public decimal ADBFinancing { get; set; }
 
+        [DataMember]
+        public string NSProjectType { get; set; }
+        [DataMember]
+        public string NSCoreSector { get; set; }
+        [DataMember]
+        public string NSOProcessingCategory { get; set; }
+
         //Agencies
         /*[DataMember]
         public ProxyAccount[] Agencies { get; set; }*/

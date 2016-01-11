@@ -79,7 +79,8 @@ namespace CRMProxyService.Entity
         public string NSCoreSector { get; set; }
         [DataMember]
         public string NSOProcessingCategory { get; set; }
-
+        [DataMember]
+        public string ProjectNo { get; set; }
         //Agencies
         /*[DataMember]
         public ProxyAccount[] Agencies { get; set; }*/

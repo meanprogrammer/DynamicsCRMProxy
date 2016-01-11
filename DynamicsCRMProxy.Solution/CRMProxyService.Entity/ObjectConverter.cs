@@ -61,7 +61,7 @@ namespace CRMProxyService.Entity
                 co.NSCoreSector = EnsureValueFromOptionSet(orig, "new_nscoresector");
 
                 co.NSOProcessingCategory = EnsureValueFromOptionSet(orig, "new_nsoprocessingcategory");//co.NSOProcessingCategory; //EnsureValueFromOptionSet(orig, "new_nsoprocessingcategory");
-
+                co.ProjectNo = orig.new_ProjectNumber;
                 //co.Agencies = ConvertToProxyAccount(orig.new_opportunity_account.ToList()).ToArray();
 
                 //co.RealOpportunity = orig;

@@ -41,15 +41,5 @@ namespace CRMProxyService.Entity
         public int? ParagraphNo { get; set; }
         [DataMember]
         public double? AgreementSectionNo { get; set; }
-        [DataMember]
-        public Dictionary<int, string> RemarksOption { get { return getOptions(); } }
-
-        private Dictionary<int, string> getOptions()
-        {
-            Dictionary<int, string> options = new Dictionary<int, string>();
-            options.Add(1, "opt 1");
-            options.Add(2, "opt 2");
-            return options;
-        }
     }
 }

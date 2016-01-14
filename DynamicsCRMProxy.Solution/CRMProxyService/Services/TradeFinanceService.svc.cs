@@ -12,22 +12,22 @@ namespace CRMProxyService.Services
     public class TradeFinanceService : ITradeFinanceService
     {
 
-        public void AddTradeFinance(Entity.ProxyTradeFinance entity)
+        public void AddTradeFinance(Entity.ProxyCreditGuaranteeRequest entity)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Entity.ProxyTradeFinance> GetAllTradeFinanace()
+        public IEnumerable<Entity.ProxyCreditGuaranteeRequest> GetAllTradeFinanace()
         {
             throw new NotImplementedException();
         }
 
-        public Entity.ProxyTradeFinance GetOneTradeFinance()
+        public Entity.ProxyCreditGuaranteeRequest GetOneTradeFinance()
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateTradeFinance(Entity.ProxyTradeFinance eneity)
+        public void UpdateTradeFinance(Entity.ProxyCreditGuaranteeRequest eneity)
         {
             throw new NotImplementedException();
         }

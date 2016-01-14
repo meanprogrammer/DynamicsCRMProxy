@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CRMProxyService.Entity
 {
-    public class ProxyTradeFinance
+    public class ProxyCreditGuaranteeRequest
     {
-
+       
     }
 }

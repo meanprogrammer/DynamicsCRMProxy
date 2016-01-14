@@ -154,6 +154,7 @@
     <Content Include="Services\CovenantService.svc" />
     <Content Include="Services\DMFService.svc" />
     <Content Include="Services\OpportunityService.svc" />
+    <Content Include="Services\TradeFinanceService.svc" />
     <Content Include="test\StudentService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -177,8 +178,12 @@
     <Compile Include="Services\ICovenantService.cs" />
     <Compile Include="Services\IDMFService.cs" />
     <Compile Include="Services\IOpportunityService.cs" />
+    <Compile Include="Services\ITradeFinanceService.cs" />
     <Compile Include="Services\OpportunityService.svc.cs">
       <DependentUpon>OpportunityService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\TradeFinanceService.svc.cs">
+      <DependentUpon>TradeFinanceService.svc</DependentUpon>
     </Compile>
     <Compile Include="test\IStudentService.cs" />
     <Compile Include="test\StudentData.cs" />

@@ -122,6 +122,7 @@
     <Compile Include="ProxyNSOOutput.cs" />
     <Compile Include="ProxyOpportunity.cs" />
     <Compile Include="ProxySOVCovenant.cs" />
+    <Compile Include="ProxyTradeFinance.cs" />
     <Compile Include="test\Student.cs" />
     <Compile Include="Xrm.cs" />
   </ItemGroup>

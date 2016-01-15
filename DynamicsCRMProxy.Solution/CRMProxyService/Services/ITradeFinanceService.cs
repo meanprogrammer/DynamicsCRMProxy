@@ -14,7 +14,7 @@ namespace CRMProxyService.Services
     {
         void AddTradeFinance(ProxyCreditGuaranteeRequest entity);
         IEnumerable<ProxyCreditGuaranteeRequest> GetAllTradeFinanace();
-        ProxyCreditGuaranteeRequest GetOneTradeFinance();
-        void UpdateTradeFinance(ProxyCreditGuaranteeRequest eneity);
+        ProxyCreditGuaranteeRequest GetOneTradeFinance(Guid id);
+        void UpdateTradeFinance(ProxyCreditGuaranteeRequest entity);
     }
 }

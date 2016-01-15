@@ -1,9 +1,12 @@
-﻿using System;
+﻿using CRMProxyService.Entity;
+using CRMProxyService.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Web.UI;
 
 namespace CRMProxyService.Services
 {
@@ -19,15 +22,31 @@ namespace CRMProxyService.Services
 
         public IEnumerable<Entity.ProxyCreditGuaranteeRequest> GetAllTradeFinanace()
         {
-            throw new NotImplementedException();
+            CacheHelper.ClearCache();
+            IEnumerable<ProxyCreditGuaranteeRequest> list = new List<ProxyCreditGuaranteeRequest>();
+            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            {
+                list = CRMProxyService.Entity.ObjectConverter.ConvertToProxyCreditGuaranteeRequest(context.new_creditguaranteerequestSet.ToList());
+            }
+            return list;
         }
 
-        public Entity.ProxyCreditGuaranteeRequest GetOneTradeFinance()
+        public Entity.ProxyCreditGuaranteeRequest GetOneTradeFinance(Guid id)
         {
-            throw new NotImplementedException();
+            CacheHelper.ClearCache();
+            ProxyCreditGuaranteeRequest covenant = null;
+            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            {
+                var c = context.new_creditguaranteerequestSet.Where(i => i.Id == id).FirstOrDefault();
+                if (c != null)
+                {
+                    covenant = CRMProxyService.Entity.ObjectConverter.SingleConvertToProxyCreditGuaranteeRequest(c);
+                }
+            }
+            return covenant;
         }
 
-        public void UpdateTradeFinance(Entity.ProxyCreditGuaranteeRequest eneity)
+        public void UpdateTradeFinance(Entity.ProxyCreditGuaranteeRequest entity)
         {
             throw new NotImplementedException();
         }

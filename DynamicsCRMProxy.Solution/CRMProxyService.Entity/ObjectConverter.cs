@@ -445,5 +445,34 @@ namespace CRMProxyService.Entity
             }
             return list;
         }
+
+        public static ProxyCreditGuaranteeRequest SingleConvertToProxyCreditGuaranteeRequest(new_creditguaranteerequest credit)
+        {
+            ProxyCreditGuaranteeRequest proxy = new ProxyCreditGuaranteeRequest();
+            proxy.RequestNo = credit.new_name; //EnsureValueFromOptionSet(credit, "new_name");
+            proxy.IssuingBankName = credit.new_IssuingBankName;
+            proxy.ConfirmingBankName = credit.new_ConfirmingBankName;
+            proxy.TypeOfTradeTransaction = EnsureValueFromOptionSet(credit, "new_typeoftradetransaction");
+            proxy.TypeOfTradeTransactionID = credit.new_TypeofTradeTransaction;
+            proxy.ApplicantName = credit.new_ApplicantName;
+            proxy.BeneficiaryName = credit.new_BeneficiaryName;
+            proxy.Tenor = credit.new_Tenor;
+            proxy.Goods = credit.new_Goods;
+            proxy.TotalTransactionValue = credit.new_TotalTransactionValue;
+            proxy.ADBAmountCovered = credit.new_AmountofADBCoverRequested;
+            return proxy;
+        }
+
+        public static IEnumerable<ProxyCreditGuaranteeRequest> ConvertToProxyCreditGuaranteeRequest(IEnumerable<new_creditguaranteerequest> creditList)
+        {
+            List<ProxyCreditGuaranteeRequest> list = new List<ProxyCreditGuaranteeRequest>();
+            foreach (new_creditguaranteerequest c in creditList)
+            {
+                ProxyCreditGuaranteeRequest proxy = SingleConvertToProxyCreditGuaranteeRequest(c);
+                list.Add(proxy);
+            }
+            return list;
+        }
+
     }
 }

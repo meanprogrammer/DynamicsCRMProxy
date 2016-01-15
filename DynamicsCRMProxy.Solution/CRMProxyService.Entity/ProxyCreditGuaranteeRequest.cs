@@ -19,6 +19,8 @@ namespace CRMProxyService.Entity
         [DataMember]
         public string TypeOfTradeTransaction { get; set; }
         [DataMember]
+        public int? TypeOfTradeTransactionID { get; set; }
+        [DataMember]
         public string ApplicantName { get; set; }
         [DataMember]
         public string BeneficiaryName { get; set; }
@@ -27,8 +29,8 @@ namespace CRMProxyService.Entity
         [DataMember]
         public string Goods { get; set; }
         [DataMember]
-        public double TotalTransactionValue { get; set; }
+        public double? TotalTransactionValue { get; set; }
         [DataMember]
-        public double ADBAmountCovered { get; set; }
+        public double? ADBAmountCovered { get; set; }
     }
 }

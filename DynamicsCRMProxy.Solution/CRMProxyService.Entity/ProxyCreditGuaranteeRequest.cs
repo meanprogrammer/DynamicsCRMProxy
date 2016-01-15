@@ -32,5 +32,7 @@ namespace CRMProxyService.Entity
         public double? TotalTransactionValue { get; set; }
         [DataMember]
         public double? ADBAmountCovered { get; set; }
+        [DataMember]
+        public Guid ID { get; set; }
     }
 }

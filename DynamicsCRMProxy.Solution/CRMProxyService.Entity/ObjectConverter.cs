@@ -460,6 +460,7 @@ namespace CRMProxyService.Entity
             proxy.Goods = credit.new_Goods;
             proxy.TotalTransactionValue = credit.new_TotalTransactionValue;
             proxy.ADBAmountCovered = credit.new_AmountofADBCoverRequested;
+            proxy.ID = credit.Id;
             return proxy;
         }
 

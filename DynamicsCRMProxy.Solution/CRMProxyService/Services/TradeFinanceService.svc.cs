@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Web.UI;
+using Xrm;
 
 namespace CRMProxyService.Services
 {
@@ -17,7 +18,13 @@ namespace CRMProxyService.Services
 
         public void AddTradeFinance(Entity.ProxyCreditGuaranteeRequest entity)
         {
-            
+            CacheHelper.ClearCache();
+            using (var context = new Xrm.XrmServiceContext("Xrm"))
+            {
+                new_creditguaranteerequest payload = CRMProxyService.Entity.ObjectConverter.CreateFromProxy(entity);
+                context.AddObject(payload);
+                context.SaveChanges();
+            }
         }
 
         public IEnumerable<Entity.ProxyCreditGuaranteeRequest> GetAllTradeFinanace()

@@ -475,5 +475,24 @@ namespace CRMProxyService.Entity
             return list;
         }
 
+        public static new_creditguaranteerequest CreateFromProxy(ProxyCreditGuaranteeRequest credit)
+        {
+            new_creditguaranteerequest result = new new_creditguaranteerequest();
+            result.new_name = credit.RequestNo;
+            result.new_IssuingBankName = credit.IssuingBankName;
+            result.new_ConfirmingBankName  = credit.ConfirmingBankName;
+            result.new_TypeofTradeTransaction = credit.TypeOfTradeTransactionID;
+            //credit.TypeOfTradeTransaction = EnsureValueFromOptionSet(credit, "new_typeoftradetransaction");
+            
+            result.new_ApplicantName = credit.ApplicantName;
+            result.new_BeneficiaryName = credit.BeneficiaryName;
+            result.new_Tenor = credit.Tenor;
+            result.new_Goods = credit.Goods;
+            result.new_TotalTransactionValue = credit.TotalTransactionValue;
+            result.new_AmountofADBCoverRequested = credit.ADBAmountCovered;
+            result.Id = credit.ID;
+            return result;
+        }
+
     }
 }

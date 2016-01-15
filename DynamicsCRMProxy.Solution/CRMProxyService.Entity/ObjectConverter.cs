@@ -481,7 +481,7 @@ namespace CRMProxyService.Entity
             result.new_name = credit.RequestNo;
             result.new_IssuingBankName = credit.IssuingBankName;
             result.new_ConfirmingBankName  = credit.ConfirmingBankName;
-            result.new_TypeofTradeTransaction = credit.TypeOfTradeTransactionID;
+            result.new_TypeofTradeTransaction = 99;//credit.TypeOfTradeTransactionID;
             //credit.TypeOfTradeTransaction = EnsureValueFromOptionSet(credit, "new_typeoftradetransaction");
             
             result.new_ApplicantName = credit.ApplicantName;

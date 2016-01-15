@@ -481,7 +481,7 @@ namespace CRMProxyService.Entity
             result.new_name = credit.RequestNo;
             result.new_IssuingBankName = credit.IssuingBankName;
             result.new_ConfirmingBankName  = credit.ConfirmingBankName;
-            result.new_TypeofTradeTransaction = 99;//credit.TypeOfTradeTransactionID;
+            result.new_TypeofTradeTransaction = credit.TypeOfTradeTransactionID;
             //credit.TypeOfTradeTransaction = EnsureValueFromOptionSet(credit, "new_typeoftradetransaction");
             
             result.new_ApplicantName = credit.ApplicantName;
@@ -489,7 +489,7 @@ namespace CRMProxyService.Entity
             result.new_Tenor = credit.Tenor;
             result.new_Goods = credit.Goods;
             result.new_TotalTransactionValue = credit.TotalTransactionValue;
-            result.new_AmountofADBCoverRequested = credit.ADBAmountCovered;
+            result.new_AmountofADBCoverRequested = 100;//credit.ADBAmountCovered;
             result.Id = credit.ID;
             return result;
         }

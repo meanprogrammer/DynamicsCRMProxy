@@ -18,7 +18,7 @@ namespace CRMProxyService.Services
 
         public void AddTradeFinance(Entity.ProxyCreditGuaranteeRequest entity)
         {
-            CacheHelper.ClearCache();
+            //CacheHelper.ClearCache();
             using (var context = new Xrm.XrmServiceContext("Xrm"))
             {
                 new_creditguaranteerequest payload = CRMProxyService.Entity.ObjectConverter.CreateFromProxy(entity);

@@ -17,7 +17,7 @@ namespace CRMProxyService.Services
 
         public void AddTradeFinance(Entity.ProxyCreditGuaranteeRequest entity)
         {
-            throw new NotImplementedException();
+            
         }
 
         public IEnumerable<Entity.ProxyCreditGuaranteeRequest> GetAllTradeFinanace()
@@ -48,7 +48,7 @@ namespace CRMProxyService.Services
 
         public void UpdateTradeFinance(Entity.ProxyCreditGuaranteeRequest entity)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

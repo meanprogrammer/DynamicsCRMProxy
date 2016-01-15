@@ -481,14 +481,14 @@ namespace CRMProxyService.Entity
             result.new_name = credit.RequestNo;
             result.new_IssuingBankName = credit.IssuingBankName;
             result.new_ConfirmingBankName  = credit.ConfirmingBankName;
-            result.new_TypeofTradeTransaction = credit.TypeOfTradeTransactionID;
+            result.new_TypeofTradeTransaction = 100000003;
             //credit.TypeOfTradeTransaction = EnsureValueFromOptionSet(credit, "new_typeoftradetransaction");
             
             result.new_ApplicantName = credit.ApplicantName;
             result.new_BeneficiaryName = credit.BeneficiaryName;
             result.new_Tenor = credit.Tenor;
             result.new_Goods = credit.Goods;
-            result.new_TotalTransactionValue = credit.TotalTransactionValue;
+            result.new_TotalTransactionValue = 2;
             result.new_AmountofADBCoverRequested = 100;//credit.ADBAmountCovered;
             result.Id = credit.ID;
             return result;

@@ -35,8 +35,12 @@ namespace CRMProxyService.Entity
         [DataMember]
         public string CompliedWith { get; set; }
         [DataMember]
+        public int? CompliedWithID { get; set; }
+        [DataMember]
         public DateTime? SubmissionDate { get; set; }
         [DataMember]
         public string Status { get; set; }
+        [DataMember]
+        public int? StatusID { get; set; }
     }
 }

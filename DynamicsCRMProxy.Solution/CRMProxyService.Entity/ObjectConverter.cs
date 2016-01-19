@@ -231,8 +231,10 @@ namespace CRMProxyService.Entity
             proxyCovenant.RemarksIssues = nso.new_RemarksIssues;
             proxyCovenant.DueDate = nso.new_DueDate;
             proxyCovenant.CompliedWith = EnsureValueFromOptionSet(nso, "new_compliedwith");
+            proxyCovenant.CompliedWithID = nso.new_CompliedWith;
             proxyCovenant.SubmissionDate = nso.new_SubmissionDate;
             proxyCovenant.Status = EnsureValueFromOptionSet(nso, "new_status");
+            proxyCovenant.StatusID = nso.new_Status;
             return proxyCovenant;
         }
 

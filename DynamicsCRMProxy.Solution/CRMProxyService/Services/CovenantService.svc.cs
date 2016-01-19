@@ -104,6 +104,8 @@ namespace CRMProxyService.Services
 
                     //c.new_Description = covenant.CovenantDescription;
                     //c.new_CovenantType = covenant.CovenantType;
+                    c.new_CompliedWith = covenant.CompliedWithID;
+                    c.new_Status = covenant.StatusID;
                     c.new_DueDate = covenant.DueDate;
                     //c.new_FrequencyofReview = covenant.FrequencyOfReview;
                     //c.new_name = covenant.Name;

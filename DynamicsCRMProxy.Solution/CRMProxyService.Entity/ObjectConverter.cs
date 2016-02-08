@@ -452,8 +452,8 @@ namespace CRMProxyService.Entity
         {
             ProxyCreditGuaranteeRequest proxy = new ProxyCreditGuaranteeRequest();
             proxy.RequestNo = credit.new_name; //EnsureValueFromOptionSet(credit, "new_name");
-            proxy.IssuingBankName = credit.new_IssuingBankName;
-            proxy.ConfirmingBankName = credit.new_ConfirmingBankName;
+            //proxy.IssuingBankName = credit.new_IssuingBankName;
+            //proxy.ConfirmingBankName = credit.new_ConfirmingBankName;
             proxy.TypeOfTradeTransaction = EnsureValueFromOptionSet(credit, "new_typeoftradetransaction");
             proxy.TypeOfTradeTransactionID = credit.new_TypeofTradeTransaction;
             proxy.ApplicantName = credit.new_ApplicantName;
@@ -481,8 +481,8 @@ namespace CRMProxyService.Entity
         {
             new_creditguaranteerequest result = new new_creditguaranteerequest();
             result.new_name = credit.RequestNo;
-            result.new_IssuingBankName = credit.IssuingBankName;
-            result.new_ConfirmingBankName  = credit.ConfirmingBankName;
+            //result.new_IssuingBankName = credit.IssuingBankName;
+            //result.new_ConfirmingBankName  = credit.ConfirmingBankName;
             result.new_TypeofTradeTransaction = credit.TypeOfTradeTransactionID;
             //credit.TypeOfTradeTransaction = EnsureValueFromOptionSet(credit, "new_typeoftradetransaction");
             

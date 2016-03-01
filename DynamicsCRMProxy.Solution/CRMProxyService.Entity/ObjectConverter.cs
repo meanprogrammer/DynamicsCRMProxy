@@ -481,8 +481,8 @@ namespace CRMProxyService.Entity
         {
             new_creditguaranteerequest result = new new_creditguaranteerequest();
             result.new_name = credit.InquiryReferenceNo;
-            //result.new_IssuingBankName = credit.IssuingBankName;
-            //result.new_ConfirmingBankName  = credit.ConfirmingBankName;
+            result.new_IssuingBankName = new Microsoft.Xrm.Client.CrmEntityReference("account", Guid.Parse(credit.IssuingBankNameIDString));
+            result.new_ConfirmingBankName = new Microsoft.Xrm.Client.CrmEntityReference("account", Guid.Parse(credit.ConfirmingBankNameIDString));
             result.new_TypeofTradeTransaction = credit.TypeOfTradeTransactionID;
             //credit.TypeOfTradeTransaction = EnsureValueFromOptionSet(credit, "new_typeoftradetransaction");
             

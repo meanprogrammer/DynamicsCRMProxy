@@ -455,7 +455,7 @@ namespace CRMProxyService.Entity
             //proxy.IssuingBankName = credit.new_IssuingBankName;
             //proxy.ConfirmingBankName = credit.new_ConfirmingBankName;
             proxy.TypeOfTradeTransaction = EnsureValueFromOptionSet(credit, "new_typeoftradetransaction");
-            proxy.TypeOfTradeTransactionID = 100000002; //credit.new_TypeofTradeTransaction;
+            proxy.TypeOfTradeTransactionID = credit.new_TypeofTradeTransaction;
             proxy.ApplicantName = credit.new_ApplicantName;
             proxy.BeneficiaryName = credit.new_BeneficiaryName;
             proxy.Tenor = credit.new_Tenor;
@@ -483,7 +483,7 @@ namespace CRMProxyService.Entity
             result.new_name = credit.InquiryReferenceNo;
             result.new_IssuingBankName = new Microsoft.Xrm.Client.CrmEntityReference("account", Guid.Parse(credit.IssuingBankNameIDString));
             result.new_ConfirmingBankName = new Microsoft.Xrm.Client.CrmEntityReference("account", Guid.Parse(credit.ConfirmingBankNameIDString));
-            result.new_TypeofTradeTransaction = credit.TypeOfTradeTransactionID;
+            result.new_TypeofTradeTransaction = 100000002; //credit.TypeOfTradeTransactionID;
             //credit.TypeOfTradeTransaction = EnsureValueFromOptionSet(credit, "new_typeoftradetransaction");
             
             result.new_ApplicantName = credit.ApplicantName;

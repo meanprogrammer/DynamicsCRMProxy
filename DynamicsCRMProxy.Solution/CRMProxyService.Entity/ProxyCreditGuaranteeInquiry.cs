@@ -8,10 +8,10 @@ using Xrm;
 
 namespace CRMProxyService.Entity
 {
-    public class ProxyCreditGuaranteeRequest
+    public class ProxyCreditGuaranteeInquiry
     {
         [DataMember]
-        public string RequestNo { get; set; }
+        public string InquiryReferenceNo { get; set; }
         [DataMember]
         public string IssuingBankName { get; set; }
         [DataMember]

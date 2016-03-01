@@ -13,12 +13,12 @@ namespace CRMProxyService.Services
     public interface ITradeFinanceService
     {
         [OperationContract]
-        void AddTradeFinance(ProxyCreditGuaranteeRequest entity);
+        void AddTradeFinance(ProxyCreditGuaranteeInquiry entity);
         [OperationContract]
-        IEnumerable<ProxyCreditGuaranteeRequest> GetAllTradeFinanace();
+        IEnumerable<ProxyCreditGuaranteeInquiry> GetAllTradeFinanace();
         [OperationContract]
-        ProxyCreditGuaranteeRequest GetOneTradeFinance(Guid id);
+        ProxyCreditGuaranteeInquiry GetOneTradeFinance(Guid id);
         [OperationContract]
-        void UpdateTradeFinance(ProxyCreditGuaranteeRequest entity);
+        void UpdateTradeFinance(ProxyCreditGuaranteeInquiry entity);
     }
 }

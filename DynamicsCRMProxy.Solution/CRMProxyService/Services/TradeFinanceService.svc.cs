@@ -16,7 +16,7 @@ namespace CRMProxyService.Services
     public class TradeFinanceService : ITradeFinanceService
     {
 
-        public void AddTradeFinance(Entity.ProxyCreditGuaranteeRequest entity)
+        public void AddTradeFinance(Entity.ProxyCreditGuaranteeInquiry entity)
         {
             //CacheHelper.ClearCache();
             using (var context = new Xrm.XrmServiceContext("Xrm"))
@@ -27,10 +27,10 @@ namespace CRMProxyService.Services
             }
         }
 
-        public IEnumerable<Entity.ProxyCreditGuaranteeRequest> GetAllTradeFinanace()
+        public IEnumerable<Entity.ProxyCreditGuaranteeInquiry> GetAllTradeFinanace()
         {
             CacheHelper.ClearCache();
-            IEnumerable<ProxyCreditGuaranteeRequest> list = new List<ProxyCreditGuaranteeRequest>();
+            IEnumerable<ProxyCreditGuaranteeInquiry> list = new List<ProxyCreditGuaranteeInquiry>();
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {
                 list = CRMProxyService.Entity.ObjectConverter.ConvertToProxyCreditGuaranteeRequest(context.new_creditguaranteerequestSet.ToList());
@@ -38,10 +38,10 @@ namespace CRMProxyService.Services
             return list;
         }
 
-        public Entity.ProxyCreditGuaranteeRequest GetOneTradeFinance(Guid id)
+        public Entity.ProxyCreditGuaranteeInquiry GetOneTradeFinance(Guid id)
         {
             CacheHelper.ClearCache();
-            ProxyCreditGuaranteeRequest covenant = null;
+            ProxyCreditGuaranteeInquiry covenant = null;
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {
                 var c = context.new_creditguaranteerequestSet.Where(i => i.Id == id).FirstOrDefault();
@@ -53,7 +53,7 @@ namespace CRMProxyService.Services
             return covenant;
         }
 
-        public void UpdateTradeFinance(Entity.ProxyCreditGuaranteeRequest entity)
+        public void UpdateTradeFinance(Entity.ProxyCreditGuaranteeInquiry entity)
         {
             
         }

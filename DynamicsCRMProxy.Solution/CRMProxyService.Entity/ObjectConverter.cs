@@ -448,10 +448,10 @@ namespace CRMProxyService.Entity
             return list;
         }
 
-        public static ProxyCreditGuaranteeRequest SingleConvertToProxyCreditGuaranteeRequest(new_creditguaranteerequest credit)
+        public static ProxyCreditGuaranteeInquiry SingleConvertToProxyCreditGuaranteeRequest(new_creditguaranteerequest credit)
         {
-            ProxyCreditGuaranteeRequest proxy = new ProxyCreditGuaranteeRequest();
-            proxy.RequestNo = credit.new_name; //EnsureValueFromOptionSet(credit, "new_name");
+            ProxyCreditGuaranteeInquiry proxy = new ProxyCreditGuaranteeInquiry();
+            proxy.InquiryReferenceNo = credit.new_name; //EnsureValueFromOptionSet(credit, "new_name");
             //proxy.IssuingBankName = credit.new_IssuingBankName;
             //proxy.ConfirmingBankName = credit.new_ConfirmingBankName;
             proxy.TypeOfTradeTransaction = EnsureValueFromOptionSet(credit, "new_typeoftradetransaction");
@@ -466,21 +466,21 @@ namespace CRMProxyService.Entity
             return proxy;
         }
 
-        public static IEnumerable<ProxyCreditGuaranteeRequest> ConvertToProxyCreditGuaranteeRequest(IEnumerable<new_creditguaranteerequest> creditList)
+        public static IEnumerable<ProxyCreditGuaranteeInquiry> ConvertToProxyCreditGuaranteeRequest(IEnumerable<new_creditguaranteerequest> creditList)
         {
-            List<ProxyCreditGuaranteeRequest> list = new List<ProxyCreditGuaranteeRequest>();
+            List<ProxyCreditGuaranteeInquiry> list = new List<ProxyCreditGuaranteeInquiry>();
             foreach (new_creditguaranteerequest c in creditList)
             {
-                ProxyCreditGuaranteeRequest proxy = SingleConvertToProxyCreditGuaranteeRequest(c);
+                ProxyCreditGuaranteeInquiry proxy = SingleConvertToProxyCreditGuaranteeRequest(c);
                 list.Add(proxy);
             }
             return list;
         }
 
-        public static new_creditguaranteerequest CreateFromProxy(ProxyCreditGuaranteeRequest credit)
+        public static new_creditguaranteerequest CreateFromProxy(ProxyCreditGuaranteeInquiry credit)
         {
             new_creditguaranteerequest result = new new_creditguaranteerequest();
-            result.new_name = credit.RequestNo;
+            result.new_name = credit.InquiryReferenceNo;
             //result.new_IssuingBankName = credit.IssuingBankName;
             //result.new_ConfirmingBankName  = credit.ConfirmingBankName;
             result.new_TypeofTradeTransaction = credit.TypeOfTradeTransactionID;

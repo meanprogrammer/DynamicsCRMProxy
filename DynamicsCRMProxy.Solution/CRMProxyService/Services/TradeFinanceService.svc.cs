@@ -33,7 +33,7 @@ namespace CRMProxyService.Services
             IEnumerable<ProxyCreditGuaranteeInquiry> list = new List<ProxyCreditGuaranteeInquiry>();
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {
-                list = CRMProxyService.Entity.ObjectConverter.ConvertToProxyCreditGuaranteeRequest(context.new_creditguaranteerequestSet.ToList());
+                list = CRMProxyService.Entity.ObjectConverter.ConvertToProxyCreditGuaranteeInquiry(context.new_creditguaranteerequestSet.ToList());
             }
             return list;
         }
@@ -47,7 +47,7 @@ namespace CRMProxyService.Services
                 var c = context.new_creditguaranteerequestSet.Where(i => i.Id == id).FirstOrDefault();
                 if (c != null)
                 {
-                    covenant = CRMProxyService.Entity.ObjectConverter.SingleConvertToProxyCreditGuaranteeRequest(c);
+                    covenant = CRMProxyService.Entity.ObjectConverter.SingleConvertToProxyCreditGuaranteeInquiry(c);
                 }
             }
             return covenant;

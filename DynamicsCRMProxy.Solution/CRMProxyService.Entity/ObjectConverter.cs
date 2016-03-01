@@ -448,7 +448,7 @@ namespace CRMProxyService.Entity
             return list;
         }
 
-        public static ProxyCreditGuaranteeInquiry SingleConvertToProxyCreditGuaranteeRequest(new_creditguaranteerequest credit)
+        public static ProxyCreditGuaranteeInquiry SingleConvertToProxyCreditGuaranteeInquiry(new_creditguaranteerequest credit)
         {
             ProxyCreditGuaranteeInquiry proxy = new ProxyCreditGuaranteeInquiry();
             proxy.InquiryReferenceNo = credit.new_name; //EnsureValueFromOptionSet(credit, "new_name");
@@ -466,12 +466,12 @@ namespace CRMProxyService.Entity
             return proxy;
         }
 
-        public static IEnumerable<ProxyCreditGuaranteeInquiry> ConvertToProxyCreditGuaranteeRequest(IEnumerable<new_creditguaranteerequest> creditList)
+        public static IEnumerable<ProxyCreditGuaranteeInquiry> ConvertToProxyCreditGuaranteeInquiry(IEnumerable<new_creditguaranteerequest> creditList)
         {
             List<ProxyCreditGuaranteeInquiry> list = new List<ProxyCreditGuaranteeInquiry>();
             foreach (new_creditguaranteerequest c in creditList)
             {
-                ProxyCreditGuaranteeInquiry proxy = SingleConvertToProxyCreditGuaranteeRequest(c);
+                ProxyCreditGuaranteeInquiry proxy = SingleConvertToProxyCreditGuaranteeInquiry(c);
                 list.Add(proxy);
             }
             return list;

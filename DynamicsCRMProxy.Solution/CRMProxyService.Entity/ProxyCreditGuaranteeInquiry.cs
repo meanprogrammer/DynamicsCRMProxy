@@ -15,6 +15,8 @@ namespace CRMProxyService.Entity
         [DataMember]
         public string IssuingBankName { get; set; }
         [DataMember]
+        public int? IssuingBankNameID { get; set; }
+        [DataMember]
         public string ConfirmingBankName { get; set; }
         [DataMember]
         public string TypeOfTradeTransaction { get; set; }

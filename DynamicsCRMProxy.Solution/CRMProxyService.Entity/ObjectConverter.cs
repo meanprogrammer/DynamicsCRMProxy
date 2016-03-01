@@ -452,8 +452,8 @@ namespace CRMProxyService.Entity
         {
             ProxyCreditGuaranteeInquiry proxy = new ProxyCreditGuaranteeInquiry();
             proxy.InquiryReferenceNo = credit.new_name; //EnsureValueFromOptionSet(credit, "new_name");
-            //proxy.IssuingBankName = credit.new_IssuingBankName;
-            //proxy.ConfirmingBankName = credit.new_ConfirmingBankName;
+            proxy.IssuingBankName = credit.new_account_new_creditguaranteerequest_IssuingBankName.Name;
+            proxy.ConfirmingBankName = credit.new_account_new_creditguaranteerequest_ConfirmingBankName.Name;
             proxy.TypeOfTradeTransaction = EnsureValueFromOptionSet(credit, "new_typeoftradetransaction");
             proxy.TypeOfTradeTransactionID = credit.new_TypeofTradeTransaction;
             proxy.ApplicantName = credit.new_ApplicantName;

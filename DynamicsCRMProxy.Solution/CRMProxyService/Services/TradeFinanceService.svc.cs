@@ -42,6 +42,7 @@ namespace CRMProxyService.Services
         {
             CacheHelper.ClearCache();
             ProxyCreditGuaranteeInquiry covenant = null;
+            AccountService acctService = new AccountService();
             using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
             {
                 var c = context.new_creditguaranteerequestSet.Where(i => i.Id == id).FirstOrDefault();

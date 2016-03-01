@@ -483,7 +483,7 @@ namespace CRMProxyService.Entity
             result.new_name = credit.InquiryReferenceNo;
             result.new_IssuingBankName = new Microsoft.Xrm.Client.CrmEntityReference("account", Guid.Parse(credit.IssuingBankNameIDString));
             result.new_ConfirmingBankName = new Microsoft.Xrm.Client.CrmEntityReference("account", Guid.Parse(credit.ConfirmingBankNameIDString));
-            result.new_TypeofTradeTransaction = credit.TypeOfTradeTransactionID.Value;
+            result.new_TypeofTradeTransaction = 100000004; //credit.TypeOfTradeTransactionID.Value;
             //credit.TypeOfTradeTransaction = EnsureValueFromOptionSet(credit, "new_typeoftradetransaction");
             
             result.new_ApplicantName = credit.ApplicantName;

@@ -462,6 +462,8 @@ namespace CRMProxyService.Entity
             proxy.Goods = credit.new_Goods;
             proxy.TotalTransactionValue = credit.new_TotalTransactionValue;
             proxy.ADBAmountCovered = credit.new_AmountofADBCoverRequested;
+            proxy.ClientEmail = credit.new_ClientEmailAddress;
+            proxy.ClientName = credit.new_ClientName;
             proxy.ID = credit.Id;
             return proxy;
         }
@@ -493,6 +495,8 @@ namespace CRMProxyService.Entity
             result.new_TotalTransactionValue = credit.TotalTransactionValue;
             result.new_AmountofADBCoverRequested = credit.ADBAmountCovered;//credit.ADBAmountCovered;
             result.Id = credit.ID;
+            result.new_ClientName = credit.ClientName;
+            result.new_ClientEmailAddress = credit.ClientEmail;
             return result;
         }
 

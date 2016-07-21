@@ -16,6 +16,7 @@ namespace CRMProxyService
             AccountService service = new AccountService();
             var x = service.GetAllConfirmingBanks();
             var ser = new JavaScriptSerializer().Serialize(x);
+            Response.AppendHeader("Access-Control-Allow-Origin", "*");
             Response.Write(ser);
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRMProxyService.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,9 @@ namespace CRMProxyService
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            AccountService service = new AccountService();
+            var x = service.GetAllConfirmingBanks();
+            Response.Write(x);
         }
     }
 }

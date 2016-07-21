@@ -17,7 +17,7 @@ namespace CRMProxyService.Services
         List<ProxyAccount> GetAllAccounts();
 
         [OperationContract]
-        [WebGet(ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json)]
         List<ProxyAccount> GetAllIssuingBanks();
 
         [OperationContract]

@@ -157,7 +157,7 @@
     <Content Include="Services\TradeFinanceService.svc" />
     <Content Include="test\StudentService.svc" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
+    <Content Include="AjaxProxy.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper\CacheHelper.cs" />
@@ -191,12 +191,12 @@
     <Compile Include="test\StudentService.svc.cs">
       <DependentUpon>StudentService.svc</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="AjaxProxy.aspx.cs">
+      <DependentUpon>AjaxProxy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="AjaxProxy.aspx.designer.cs">
+      <DependentUpon>AjaxProxy.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

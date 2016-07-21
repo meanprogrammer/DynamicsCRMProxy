@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace CRMProxyService.Services
@@ -16,6 +17,7 @@ namespace CRMProxyService.Services
         List<ProxyAccount> GetAllAccounts();
 
         [OperationContract]
+        [WebGet(ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
         List<ProxyAccount> GetAllIssuingBanks();
 
         [OperationContract]

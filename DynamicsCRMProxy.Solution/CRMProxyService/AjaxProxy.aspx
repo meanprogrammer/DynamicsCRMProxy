@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="CRMProxyService.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AjaxProxy.aspx.cs" Inherits="CRMProxyService.AjaxProxy" %>
 
 <!DOCTYPE html>
 

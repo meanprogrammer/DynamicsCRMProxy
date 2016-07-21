@@ -25,7 +25,6 @@ namespace CRMProxyService.Services
             return ObjectConverter.ConvertToProxyAccount(xrm.AccountSet.ToList());
         }
 
-        [WebGet]
         public List<ProxyAccount> GetAllIssuingBanks()
         {
             CacheHelper.ClearCache();
@@ -33,7 +32,6 @@ namespace CRMProxyService.Services
             return ObjectConverter.ConvertToProxyAccount(xrm.AccountSet.ToList().Where(c => c.new_AgencyRole == 100000014));
         }
 
-        [WebGet]
         public List<ProxyAccount> GetAllConfirmingBanks()
         {
             CacheHelper.ClearCache();

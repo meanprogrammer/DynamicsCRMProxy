@@ -16,9 +16,17 @@ namespace CRMProxyService.Services
         List<ProxyAccount> GetAllAccounts();
 
         [OperationContract]
+        List<ProxyAccount> GetAllIssuingBanks();
+
+        [OperationContract]
+        List<ProxyAccount> GetAllConfirmingBanks();
+
+        [OperationContract]
         ProxyAccount GetOneAccount(Guid id);
 
         [OperationContract]
         void UpdateOneAccount(ProxyAccount account);
+
+        
     }
 }

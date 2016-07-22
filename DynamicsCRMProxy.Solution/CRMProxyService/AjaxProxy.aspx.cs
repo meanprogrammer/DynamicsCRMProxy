@@ -13,11 +13,24 @@ namespace CRMProxyService
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            AccountService service = new AccountService();
-            var x = service.GetAllConfirmingBanks();
-            var ser = new JavaScriptSerializer().Serialize(x);
-            Response.AppendHeader("Access-Control-Allow-Origin", "*");
-            Response.Write(ser);
+            var action = Request.QueryString["action"];
+            if (action == "confirming")
+            {
+                AccountService service = new AccountService();
+                var x = service.GetAllConfirmingBanks();
+                var ser = new JavaScriptSerializer().Serialize(x);
+                Response.AppendHeader("Access-Control-Allow-Origin", "*");
+                Response.Write(ser);
+            }
+
+            if (action == "issuing")
+            {
+                AccountService service = new AccountService();
+                var x = service.GetAllIssuingBanks();
+                var ser = new JavaScriptSerializer().Serialize(x);
+                Response.AppendHeader("Access-Control-Allow-Origin", "*");
+                Response.Write(ser);
+            }
         }
     }
 }

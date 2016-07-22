@@ -11,7 +11,7 @@ using System.Text;
 namespace CRMProxyService.Services
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IAccountService" in both code and config file together.
-    [ServiceContract(Namespace = "")]
+    [ServiceContract]
     public interface IAccountService
     {
         [OperationContract]

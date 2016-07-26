@@ -150,6 +150,7 @@
     <Content Include="Assemblies\Microsoft.Xrm.Tooling.Ui.Styles.dll" />
     <Content Include="Assemblies\Microsoft.Xrm.Tooling.WebResourceUtility.dll" />
     <Content Include="Services\AccountService.svc" />
+    <Content Include="Services\AjaxAccountService.svc" />
     <Content Include="Services\ConnectionService.svc" />
     <Content Include="Services\CovenantService.svc" />
     <Content Include="Services\DMFService.svc" />
@@ -164,6 +165,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountService.svc.cs">
       <DependentUpon>AccountService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AjaxAccountService.svc.cs">
+      <DependentUpon>AjaxAccountService.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\ConnectionService.svc.cs">
       <DependentUpon>ConnectionService.svc</DependentUpon>

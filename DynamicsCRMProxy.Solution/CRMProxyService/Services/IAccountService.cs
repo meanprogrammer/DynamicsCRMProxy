@@ -18,11 +18,12 @@ namespace CRMProxyService.Services
         List<ProxyAccount> GetAllAccounts();
 
         [OperationContract]
-        [WebGet]
+        [WebGet(ResponseFormat=WebMessageFormat.Json)]
+
         List<ProxyAccount> GetAllIssuingBanks();
 
         [OperationContract]
-        [WebGet]
+        [WebGet(ResponseFormat = WebMessageFormat.Json)]
         List<ProxyAccount> GetAllConfirmingBanks();
 
         [OperationContract]

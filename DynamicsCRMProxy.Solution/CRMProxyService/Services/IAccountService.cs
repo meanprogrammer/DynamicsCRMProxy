@@ -22,6 +22,7 @@ namespace CRMProxyService.Services
         List<ProxyAccount> GetAllIssuingBanks();
 
         [OperationContract]
+        [WebGet]
         List<ProxyAccount> GetAllConfirmingBanks();
 
         [OperationContract]

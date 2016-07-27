@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,9 +16,11 @@ namespace CRMProxyService.Services
         List<ProxyAccount> GetAllAccounts();
 
         [OperationContract]
+        [WebGet]
         List<ProxyAccount> GetAllIssuingBanks();
 
         [OperationContract]
+        [WebGet]
         List<ProxyAccount> GetAllConfirmingBanks();
 
         [OperationContract]

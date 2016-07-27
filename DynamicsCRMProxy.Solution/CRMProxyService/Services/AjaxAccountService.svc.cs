@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CRMProxyService.Entity;
+using CRMProxyService.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -6,25 +8,52 @@ using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
+using Xrm;
 
 namespace CRMProxyService.Services
 {
-    [ServiceContract(Namespace = "")]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
-    public class AjaxAccountService
+    public class AjaxAccountService : IAjaxAccountService
     {
         // To use HTTP GET, add [WebGet] attribute. (Default ResponseFormat is WebMessageFormat.Json)
         // To create an operation that returns XML,
         //     add [WebGet(ResponseFormat=WebMessageFormat.Xml)],
         //     and include the following line in the operation body:
         //         WebOperationContext.Current.OutgoingResponse.ContentType = "text/xml";
-        [OperationContract]
-        public void DoWork()
+
+        public List<ProxyAccount> GetAllAccounts()
         {
-            // Add your operation implementation here
-            return;
+            CacheHelper.ClearCache();
+            var xrm = new XrmServiceContext("Xrm");
+            return ObjectConverter.ConvertToProxyAccount(xrm.AccountSet.ToList());
         }
 
-        // Add more operations here and mark them with [OperationContract]
+        public List<ProxyAccount> GetAllIssuingBanks()
+        {
+            CacheHelper.ClearCache();
+            var xrm = new XrmServiceContext("Xrm");
+            return ObjectConverter.ConvertToProxyAccount(xrm.AccountSet.ToList().Where(c => c.new_AgencyRole == 100000014));
+        }
+
+        public List<ProxyAccount> GetAllConfirmingBanks()
+        {
+            CacheHelper.ClearCache();
+            var xrm = new XrmServiceContext("Xrm");
+            return ObjectConverter.ConvertToProxyAccount(xrm.AccountSet.ToList().Where(c => c.new_AgencyRole == 100000013));
+        }
+
+        public ProxyAccount GetOneAccount(Guid id)
+        {
+            CacheHelper.ClearCache();
+            var xrm = new XrmServiceContext("Xrm");
+            Account ac = xrm.AccountSet.Where(x => x.Id == id).FirstOrDefault();
+            return ObjectConverter.SingleConvertToProxyAccount(ac);
+        }
+
+
+        public void UpdateOneAccount(ProxyAccount account)
+        {
+
+        }
     }
 }

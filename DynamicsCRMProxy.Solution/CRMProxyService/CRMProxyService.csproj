@@ -179,6 +179,7 @@
       <DependentUpon>DMFService.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\IAccountService.cs" />
+    <Compile Include="Services\IAjaxAccountService.cs" />
     <Compile Include="Services\IConnectionService.cs" />
     <Compile Include="Services\ICovenantService.cs" />
     <Compile Include="Services\IDMFService.cs" />

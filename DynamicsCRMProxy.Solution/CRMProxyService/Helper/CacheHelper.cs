@@ -9,8 +9,8 @@ namespace CRMProxyService.Helper
     {
         public static void ClearCache()
         {
-            System.Runtime.Caching.ObjectCache cache = Microsoft.Xrm.Client.Caching.ObjectCacheManager.GetInstance();
-            Microsoft.Xrm.Client.Caching.ObjectCacheManager.Clear(cache);
+            //System.Runtime.Caching.ObjectCache cache = Microsoft.Xrm.Client.Caching.ObjectCacheManager.GetInstance();
+            //Microsoft.Xrm.Client.Caching.ObjectCacheManager.Clear(cache);
         }
     }
 }

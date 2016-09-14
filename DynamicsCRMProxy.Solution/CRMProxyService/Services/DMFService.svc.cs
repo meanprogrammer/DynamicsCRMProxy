@@ -13,15 +13,21 @@ namespace CRMProxyService.Services
     // NOTE: In order to launch WCF Test Client for testing this service, please select DMFService.svc or DMFService.svc.cs at the Solution Explorer and start debugging.
     public class DMFService : IDMFService
     {
+        private Xrm.XrmServiceContext xrm = null;
+
+        public DMFService()
+        {
+            this.xrm = new Xrm.XrmServiceContext("Xrm");
+        }
 
         public IEnumerable<ProxyNSOImpact> GetAllNSOImpact()
         {
             CacheHelper.ClearCache();
             IEnumerable<ProxyNSOImpact> list = new List<ProxyNSOImpact>();
-            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
-            {
-                list = ObjectConverter.ConvertToProxyNSOImpact(context.new_nsoimpactSet);
-            }
+            //using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //{
+            list = ObjectConverter.ConvertToProxyNSOImpact(this.xrm.new_nsoimpactSet);
+            //}
             return list;
         }
 
@@ -29,14 +35,14 @@ namespace CRMProxyService.Services
         {
             CacheHelper.ClearCache();
             ProxyNSOImpact proxy = null;
-            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
-            {
-                var p = context.new_nsoimpactSet.Where(c => c.Id == id).FirstOrDefault();
+            //using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //{
+            var p = this.xrm.new_nsoimpactSet.Where(c => c.Id == id).FirstOrDefault();
                 if (p != null)
                 {
                     proxy = ObjectConverter.SingleConvertToProxyNSOImpact(p);
                 }
-            }
+            //}
             return proxy;
         }
 
@@ -44,10 +50,10 @@ namespace CRMProxyService.Services
         {
             CacheHelper.ClearCache();
             IEnumerable<ProxyNSOOutcome> list = new List<ProxyNSOOutcome>();
-            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
-            {
-                list = ObjectConverter.ConvertToProxyNSOOutcome(context.new_nsooutcomeSet.ToList());
-            }
+            //using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //{
+            list = ObjectConverter.ConvertToProxyNSOOutcome(this.xrm.new_nsooutcomeSet);
+            //}
             return list;
         }
 
@@ -70,10 +76,10 @@ namespace CRMProxyService.Services
         {
             CacheHelper.ClearCache();
             IEnumerable<ProxyNSOOutput> list = new List<ProxyNSOOutput>();
-            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
-            {
-                list = ObjectConverter.ConvertToProxyNSOOutput(context.new_nsooutputSet.ToList());
-            }
+            //using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //{
+            list = ObjectConverter.ConvertToProxyNSOOutput(this.xrm.new_nsooutputSet);
+            //}
             return list;
         }
 
@@ -81,14 +87,14 @@ namespace CRMProxyService.Services
         {
             CacheHelper.ClearCache();
             ProxyNSOOutput proxy = null;
-            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
-            {
-                var o = context.new_nsooutputSet.Where(c => c.Id == id).FirstOrDefault();
+            //using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //{
+            var o = this.xrm.new_nsooutputSet.Where(c => c.Id == id).FirstOrDefault();
                 if (o != null)
                 {
                     proxy = ObjectConverter.SingleConvertToProxyNSOOutput(o);
                 }
-            }
+            //}
             return proxy;
         }
 
@@ -96,9 +102,9 @@ namespace CRMProxyService.Services
         public void UpdateNSOImpact(ProxyNSOImpact impact)
         {
             CacheHelper.ClearCache();
-            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
-            {
-                var i = (from s in context.new_nsoimpactSet
+            //using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //{
+            var i = (from s in this.xrm.new_nsoimpactSet
                          where s.Id == impact.ID
                          select s).FirstOrDefault();
                 if (i != null)
@@ -116,65 +122,65 @@ namespace CRMProxyService.Services
 
 
 
-                    context.UpdateObject(i);
-                    context.SaveChanges();
+                    this.xrm.UpdateObject(i);
+                    this.xrm.SaveChanges();
                 }
-            }
+            //}
         }
 
         public void UpdateNSOOutcome(ProxyNSOOutcome outcome)
         {
             CacheHelper.ClearCache();
-            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //{
+            var o = (from s in this.xrm.new_nsooutcomeSet
+                     where s.Id == outcome.ID
+                     select s).FirstOrDefault();
+            if (o != null)
             {
-                var o = (from s in context.new_nsooutcomeSet
-                         where s.Id == outcome.ID
-                         select s).FirstOrDefault();
-                if (o != null)
-                {
-                    
-                    o.new_Out_ProgressStatus = outcome.ProgressStatus;
-                    o.new_Out_Assumptions = outcome.Assumptions;
-                    o.new_Out_Risks = outcome.Risks;
-                    o.new_Out_AssessmentofCurrentStatus = outcome.AssessmentOfCurrentStatus;
-                    o.new_Out_RisksAssessmentofCurrentStatus = outcome.RiskAssessmentOfCurrentStatus;
 
-                    o.new_Out_Problems = outcome.Problems;
-                    o.new_Out_ProposedActionTaken = outcome.ActionTaken;
-                    o.new_Out_RecentDevelopment = outcome.RecentDevelopment;
-                    o.new_Out_Date = outcome.Date;
+                o.new_Out_ProgressStatus = outcome.ProgressStatus;
+                o.new_Out_Assumptions = outcome.Assumptions;
+                o.new_Out_Risks = outcome.Risks;
+                o.new_Out_AssessmentofCurrentStatus = outcome.AssessmentOfCurrentStatus;
+                o.new_Out_RisksAssessmentofCurrentStatus = outcome.RiskAssessmentOfCurrentStatus;
 
-                    context.UpdateObject(o);
-                    context.SaveChanges();
-                }
+                o.new_Out_Problems = outcome.Problems;
+                o.new_Out_ProposedActionTaken = outcome.ActionTaken;
+                o.new_Out_RecentDevelopment = outcome.RecentDevelopment;
+                o.new_Out_Date = outcome.Date;
+
+                this.xrm.UpdateObject(o);
+                this.xrm.SaveChanges();
             }
+            //}
         }
 
         public void UpdateNSOOutput(ProxyNSOOutput output)
         {
             CacheHelper.ClearCache();
-            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //{
+            var o = (from s in this.xrm.new_nsooutputSet
+                     where s.Id == output.ID
+                     select s).FirstOrDefault();
+            if (o != null)
             {
-                var o = (from s in context.new_nsooutputSet
-                         where s.Id == output.ID
-                         select s).FirstOrDefault();
-                if (o != null)
-                {
-                    o.new_Outp_ProgressStatus = output.ProgressStatus;
-                    o.new_Outp_Assumptions = output.Assumptions;
-                    o.new_Outp_Risks = output.Risks;
-                    o.new_Outp_AssessmentofCurrentStatus = output.AssessmentOfCurrentStatus;
-                    o.new_Outp_RisksAssessmentofCurrentStatus = output.RiskAssessmentOfCurrentStatus;
+                o.new_Outp_ProgressStatus = output.ProgressStatus;
+                o.new_Outp_Assumptions = output.Assumptions;
+                o.new_Outp_Risks = output.Risks;
+                o.new_Outp_AssessmentofCurrentStatus = output.AssessmentOfCurrentStatus;
+                o.new_Outp_RisksAssessmentofCurrentStatus = output.RiskAssessmentOfCurrentStatus;
 
-                    o.new_Outp_Problems = output.Problems;
-                    o.new_Outp_ProposedActionTaken = output.ActionTaken;
-                    o.new_Outp_RecentDevelopment = output.RecentDevelopment;
-                    o.new_Outp_Date = output.Date;
+                o.new_Outp_Problems = output.Problems;
+                o.new_Outp_ProposedActionTaken = output.ActionTaken;
+                o.new_Outp_RecentDevelopment = output.RecentDevelopment;
+                o.new_Outp_Date = output.Date;
 
-                    context.UpdateObject(o);
-                    context.SaveChanges();
-                }
+                this.xrm.UpdateObject(o);
+                this.xrm.SaveChanges();
             }
+            //}
         }
     }
 }

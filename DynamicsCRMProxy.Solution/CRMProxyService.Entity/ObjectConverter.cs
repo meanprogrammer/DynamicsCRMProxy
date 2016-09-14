@@ -9,12 +9,11 @@ namespace CRMProxyService.Entity
 {
     public static class ObjectConverter
     {
-
-        public static ProxyOpportunity ConvertToReadableOpportunity(Opportunity orig)
+        public static ProxyOpportunity ConvertToReadableOpportunity(Opportunity orig, XrmServiceContext context)
         {
             ProxyOpportunity co = new ProxyOpportunity();
-            using (Xrm.XrmServiceContext context = new XrmServiceContext("Xrm"))
-            {
+            //using (Xrm.XrmServiceContext context = new XrmServiceContext("Xrm"))
+            //{
 
                 co.Id = orig.Id;
                 co.OpportunityId = orig.OpportunityId;
@@ -69,7 +68,7 @@ namespace CRMProxyService.Entity
 
                 //co.c1 = orig.opportunity_connections1;
                 //co.c2 = orig.opportunity_connections2;
-            }
+            //}
             return co;
 
         }

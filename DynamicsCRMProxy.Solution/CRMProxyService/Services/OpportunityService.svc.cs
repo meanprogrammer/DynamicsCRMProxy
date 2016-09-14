@@ -27,7 +27,7 @@ namespace CRMProxyService.Services
             var all = xrm.OpportunitySet.ToList();
             foreach (Opportunity item in all)
             {
-                ProxyOpportunity converted = ObjectConverter.ConvertToReadableOpportunity(item);
+                ProxyOpportunity converted = ObjectConverter.ConvertToReadableOpportunity(item, this.xrm);
                 accs.Add(converted);
             }
             //}
@@ -40,7 +40,7 @@ namespace CRMProxyService.Services
             //return 
             Opportunity orig = this.xrm.OpportunitySet.Where(c => c.Id == id).FirstOrDefault();
 
-            return ObjectConverter.ConvertToReadableOpportunity(orig);
+            return ObjectConverter.ConvertToReadableOpportunity(orig, this.xrm);
         }
 
         public bool UpdateOpportunity(Guid id, ProxyOpportunity opp)

@@ -31,22 +31,19 @@ namespace CRMProxyService.Services
         public List<ProxyAccount> GetAllIssuingBanks()
         {
             CacheHelper.ClearCache();
-            var xrm = new XrmServiceContext("Xrm");
-            return ObjectConverter.ConvertToProxyAccount(xrm.AccountSet.ToList().Where(c => c.new_AgencyRole == 100000014));
+            return ObjectConverter.ConvertToProxyAccount(this.xrm.AccountSet.ToList().Where(c => c.new_AgencyRole == 100000014));
         }
 
         public List<ProxyAccount> GetAllConfirmingBanks()
         {
             CacheHelper.ClearCache();
-            var xrm = new XrmServiceContext("Xrm");
-            return ObjectConverter.ConvertToProxyAccount(xrm.AccountSet.ToList().Where(c => c.new_AgencyRole == 100000013));
+            return ObjectConverter.ConvertToProxyAccount(this.xrm.AccountSet.ToList().Where(c => c.new_AgencyRole == 100000013));
         }
 
         public ProxyAccount GetOneAccount(Guid id)
         {
             CacheHelper.ClearCache();
-            var xrm = new XrmServiceContext("Xrm");
-            Account ac = xrm.AccountSet.Where(x => x.Id == id).FirstOrDefault();
+            Account ac = this.xrm.AccountSet.Where(x => x.Id == id).FirstOrDefault();
             return ObjectConverter.SingleConvertToProxyAccount(ac);
         }
 

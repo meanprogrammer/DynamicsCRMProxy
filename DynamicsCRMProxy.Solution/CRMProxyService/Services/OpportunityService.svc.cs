@@ -24,7 +24,7 @@ namespace CRMProxyService.Services
             List<ProxyOpportunity> accs = new List<ProxyOpportunity>();
             //using (var xrm = new XrmServiceContext("Xrm"))
             //{
-            var all = xrm.OpportunitySet.ToList();
+            var all = xrm.OpportunitySet;
             foreach (Opportunity item in all)
             {
                 ProxyOpportunity converted = ObjectConverter.ConvertToReadableOpportunity(item, this.xrm);

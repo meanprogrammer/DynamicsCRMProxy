@@ -16,12 +16,16 @@ namespace CRMProxyService.Services
     // NOTE: In order to launch WCF Test Client for testing this service, please select AccountService.svc or AccountService.svc.cs at the Solution Explorer and start debugging.
     public class AccountService : IAccountService
     {
+        private XrmServiceContext xrm = null;
+        public AccountService()
+        {
+            xrm = new XrmServiceContext("Xrm");
+        }
 
         public List<ProxyAccount> GetAllAccounts()
         {
             CacheHelper.ClearCache();
-            var xrm = new XrmServiceContext("Xrm");
-            return ObjectConverter.ConvertToProxyAccount(xrm.AccountSet.ToList());
+            return ObjectConverter.ConvertToProxyAccount(this.xrm.AccountSet.ToList());
         }
 
         public List<ProxyAccount> GetAllIssuingBanks()

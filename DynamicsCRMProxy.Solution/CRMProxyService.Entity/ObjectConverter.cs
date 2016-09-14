@@ -127,18 +127,18 @@ namespace CRMProxyService.Entity
             return results;
         }
 
-        public static List<ProxyConnection> ConvertToProxyConnection(IEnumerable<Xrm.Connection> connections)
+        public static List<ProxyConnection> ConvertToProxyConnection(IEnumerable<Xrm.Connection> connections, XrmServiceContext context)
         {
             List<ProxyConnection> result = new List<ProxyConnection>();
             foreach (Xrm.Connection c in connections)
             {
-                ProxyConnection pc = SingleConvertToProxyConnection(c);
+                ProxyConnection pc = SingleConvertToProxyConnection(c, context);
                 result.Add(pc);
             }
             return result;
         }
 
-        public static ProxyConnection SingleConvertToProxyConnection(Xrm.Connection connection)
+        public static ProxyConnection SingleConvertToProxyConnection(Xrm.Connection connection, XrmServiceContext context)
         {
             ProxyConnection pc = null;
             if (connection != null)
@@ -153,8 +153,8 @@ namespace CRMProxyService.Entity
                 {
                     if (connection.Record2Id.LogicalName.Equals("contact", StringComparison.InvariantCultureIgnoreCase))
                     {
-                        using (Xrm.XrmServiceContext context = new XrmServiceContext("Xrm"))
-                        {
+                        //using (Xrm.XrmServiceContext context = new XrmServiceContext("Xrm"))
+                        //{
                             var contact = context.ContactSet.Where(c => c.Id == connection.Record2Id.Id).FirstOrDefault();
                             if (contact != null)
                             {
@@ -174,7 +174,7 @@ namespace CRMProxyService.Entity
                                 pc.Address1_ZipCode = contact.Address1_PostalCode;
                                 pc.Address1_CountryRegion = contact.Address1_Country;
                             }
-                        }
+                        //}
                     }
                 }
                  

@@ -13,14 +13,19 @@ namespace CRMProxyService.Services
     // NOTE: In order to launch WCF Test Client for testing this service, please select CovenantService.svc or CovenantService.svc.cs at the Solution Explorer and start debugging.
     public class CovenantService : ICovenantService
     {
+        private Xrm.XrmServiceContext xrm = null;
+        public CovenantService()
+        {
+            this.xrm = new Xrm.XrmServiceContext("Xrm");
+        }
         public IEnumerable<Entity.ProxySOVCovenant> GetAllSOVCovenant()
         {
             CacheHelper.ClearCache();
             IEnumerable<ProxySOVCovenant> list = new List<ProxySOVCovenant>();
-            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
-            {
-                list = ObjectConverter.ConvertToSOVCovenant(context.new_covenantsSet.ToList());
-            }
+            //using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //{
+            list = ObjectConverter.ConvertToSOVCovenant(this.xrm.new_covenantsSet);
+            //}
             return list;
         }
 
@@ -28,14 +33,14 @@ namespace CRMProxyService.Services
         {
             CacheHelper.ClearCache();
             ProxySOVCovenant covenant = null;
-            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //{
+            var c = this.xrm.new_covenantsSet.Where(i => i.Id == id).FirstOrDefault();
+            if (c != null)
             {
-                var c = context.new_covenantsSet.Where(i => i.Id == id).FirstOrDefault();
-                if (c != null)
-                {
-                    covenant = ObjectConverter.SingleConvertToSOVCovenant(c);
-                }
+                covenant = ObjectConverter.SingleConvertToSOVCovenant(c);
             }
+            //}
             return covenant;
         }
 
@@ -43,10 +48,10 @@ namespace CRMProxyService.Services
         {
             CacheHelper.ClearCache();
             IEnumerable<ProxyNSOCovenant> list = new List<ProxyNSOCovenant>();
-            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
-            {
-                list = ObjectConverter.ConvertToNSOCovenant(context.new_nsocovenantSet.ToList());
-            }
+            //using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //{
+            list = ObjectConverter.ConvertToNSOCovenant(this.xrm.new_nsocovenantSet);
+            //}
             return list;
         }
 
@@ -54,14 +59,14 @@ namespace CRMProxyService.Services
         {
             CacheHelper.ClearCache();
             ProxyNSOCovenant covenant = null;
-            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //{
+            var c = this.xrm.new_nsocovenantSet.Where(i => i.Id == id).FirstOrDefault();
+            if (c != null)
             {
-                var c = context.new_nsocovenantSet.Where(i => i.Id == id).FirstOrDefault();
-                if (c != null)
-                {
-                    covenant = ObjectConverter.SingleConvertToNSOCovenant(c);
-                }
+                covenant = ObjectConverter.SingleConvertToNSOCovenant(c);
             }
+            //}
             return covenant;
         }
 
@@ -69,53 +74,53 @@ namespace CRMProxyService.Services
         public void UpdateSOVCovenant(ProxySOVCovenant covenant)
         {
             CacheHelper.ClearCache();
-            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //{
+            var c = (from s in this.xrm.new_covenantsSet
+                     where s.Id == covenant.ID
+                     select s).FirstOrDefault();
+            if (c != null)
             {
-                var c = (from s in context.new_covenantsSet
-                         where s.Id == covenant.ID
-                           select s).FirstOrDefault();
-                if (c != null)
-                {
-                    c.new_CompiledDate = covenant.CompliedDate;
-                    c.new_Rating = covenant.Rating;
-                    //c.new_Remarks = covenant.Remarks;
-                    c.new_ParagraphNo = covenant.ParagraphNo;
-                    c.new_AgreementSectionNo = covenant.AgreementSectionNo;
+                c.new_CompiledDate = covenant.CompliedDate;
+                c.new_Rating = covenant.Rating;
+                //c.new_Remarks = covenant.Remarks;
+                c.new_ParagraphNo = covenant.ParagraphNo;
+                c.new_AgreementSectionNo = covenant.AgreementSectionNo;
 
-                    context.UpdateObject(c);
-                    context.SaveChanges();
-                }
+                this.xrm.UpdateObject(c);
+                this.xrm.SaveChanges();
             }
+            //}
         }
 
         public void UpdateNSOCovenant(ProxyNSOCovenant covenant)
         {
             CacheHelper.ClearCache();
-            using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //using (Xrm.XrmServiceContext context = new Xrm.XrmServiceContext("Xrm"))
+            //{
+            var c = (from s in this.xrm.new_nsocovenantSet
+                     where s.Id == covenant.ID
+                     select s).FirstOrDefault();
+            if (c != null)
             {
-                var c = (from s in context.new_nsocovenantSet
-                         where s.Id == covenant.ID
-                         select s).FirstOrDefault();
-                if (c != null)
-                {
-                    //c.new_Status = covenant.Status;
-                    //c.new_CompliedWith = Convert.ToInt32(covenant.CompliedWith);
+                //c.new_Status = covenant.Status;
+                //c.new_CompliedWith = Convert.ToInt32(covenant.CompliedWith);
 
 
-                    //c.new_Description = covenant.CovenantDescription;
-                    //c.new_CovenantType = covenant.CovenantType;
-                    c.new_CompliedWith = covenant.CompliedWithID;
-                    c.new_Status = covenant.StatusID;
-                    c.new_DueDate = covenant.DueDate;
-                    //c.new_FrequencyofReview = covenant.FrequencyOfReview;
-                    //c.new_name = covenant.Name;
-                    //covenant.
-                    c.new_SubmissionDate = covenant.SubmissionDate;
-                    
-                    context.UpdateObject(c);
-                    context.SaveChanges();
-                }
+                //c.new_Description = covenant.CovenantDescription;
+                //c.new_CovenantType = covenant.CovenantType;
+                c.new_CompliedWith = covenant.CompliedWithID;
+                c.new_Status = covenant.StatusID;
+                c.new_DueDate = covenant.DueDate;
+                //c.new_FrequencyofReview = covenant.FrequencyOfReview;
+                //c.new_name = covenant.Name;
+                //covenant.
+                c.new_SubmissionDate = covenant.SubmissionDate;
+
+                this.xrm.UpdateObject(c);
+                this.xrm.SaveChanges();
             }
+            //}
         }
     }
 }

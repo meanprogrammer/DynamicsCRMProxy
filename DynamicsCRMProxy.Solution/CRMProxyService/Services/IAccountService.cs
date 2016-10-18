@@ -15,6 +15,7 @@ namespace CRMProxyService.Services
     public interface IAccountService
     {
         [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json)]
         List<ProxyAccount> GetAllAccounts();
 
         [OperationContract]

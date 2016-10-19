@@ -9,9 +9,8 @@ using System.ServiceModel.Web;
 using System.Text;
 using Xrm;
 
-namespace CRMProxyService.Services.Ajax
+namespace CRMProxyService.Services
 {
-    [ServiceContract(Namespace = "")]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class AjaxOpportunityService : IAjaxOpportunityService
     {

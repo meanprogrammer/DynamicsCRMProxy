@@ -18,8 +18,8 @@ namespace CRMProxyService.Services
         List<ProxyOpportunity> GetAllOpportunity();
         [OperationContract]
         [WebInvoke(Method = "POST",
- BodyStyle = WebMessageBodyStyle.Wrapped,
- ResponseFormat = WebMessageFormat.Json)]
+ BodyStyle = WebMessageBodyStyle.Bare,
+ ResponseFormat = WebMessageFormat.Json, RequestFormat= WebMessageFormat.Json)]
         ProxyOpportunity GetOneOpportunity(Guid id);
         //[OperationContract]
         //[WebGet(ResponseFormat = WebMessageFormat.Json)]

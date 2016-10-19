@@ -81,6 +81,7 @@ namespace CRMProxyService.Entity
         public string NSOProcessingCategory { get; set; }
         [DataMember]
         public string ProjectNo { get; set; }
+        /*
         [DataMember]
         public string ClosingDateFormatted
         {
@@ -92,7 +93,7 @@ namespace CRMProxyService.Entity
 
                 return returnValue;
             }
-        }
+        }*/
         //Agencies
         /*[DataMember]
         public ProxyAccount[] Agencies { get; set; }*/

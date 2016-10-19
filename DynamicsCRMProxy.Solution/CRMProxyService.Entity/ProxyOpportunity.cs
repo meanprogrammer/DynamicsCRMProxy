@@ -81,6 +81,18 @@ namespace CRMProxyService.Entity
         public string NSOProcessingCategory { get; set; }
         [DataMember]
         public string ProjectNo { get; set; }
+        [DataMember]
+        public string ClosingDateFormatted
+        {
+            get {
+                var returnValue = string.Empty;
+                if (ClosingDate.HasValue) {
+                    returnValue = ClosingDate.Value.ToShortDateString();
+                }
+
+                return returnValue;
+            }
+        }
         //Agencies
         /*[DataMember]
         public ProxyAccount[] Agencies { get; set; }*/

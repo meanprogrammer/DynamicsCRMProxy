@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="CRMProxyService.Services.Ajax.AjaxOpportunityService" CodeBehind="AjaxOpportunityService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="CRMProxyService.Services.AjaxOpportunityService" CodeBehind="AjaxOpportunityService.svc.cs" %>

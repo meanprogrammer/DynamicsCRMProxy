@@ -49,7 +49,7 @@ namespace CRMProxyService.Services
 
             return ObjectConverter.ConvertToReadableOpportunity(orig, this.xrm);
         }
-
+        /*
         public bool UpdateOpportunity(Guid id, Entity.ProxyOpportunity opp)
         {
             //var xrm = new XrmServiceContext("Xrm");
@@ -58,5 +58,6 @@ namespace CRMProxyService.Services
             xrm.Update(orig);
             return true;
         }
+         * */
     }
 }

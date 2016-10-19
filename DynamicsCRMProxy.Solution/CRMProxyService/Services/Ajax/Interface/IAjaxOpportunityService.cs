@@ -17,10 +17,10 @@ namespace CRMProxyService.Services
         [WebGet(ResponseFormat = WebMessageFormat.Json)]
         List<ProxyOpportunity> GetAllOpportunity();
         [OperationContract]
-        [WebInvoke(Method = "POST",
+        [WebInvoke(Method = "POST", UriTemplate="/{id}",
  BodyStyle = WebMessageBodyStyle.Bare,
  ResponseFormat = WebMessageFormat.Json, RequestFormat= WebMessageFormat.Json)]
-        ProxyOpportunity GetOneOpportunity(Guid id);
+        ProxyOpportunity GetOneOpportunity(string id);
         //[OperationContract]
         //[WebGet(ResponseFormat = WebMessageFormat.Json)]
         //bool UpdateOpportunity(Guid id, ProxyOpportunity opp);

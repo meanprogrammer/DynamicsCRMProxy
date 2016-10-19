@@ -41,11 +41,12 @@ namespace CRMProxyService.Services
             return accs;
         }
 
-        public Entity.ProxyOpportunity GetOneOpportunity(Guid id)
+        public Entity.ProxyOpportunity GetOneOpportunity(string id)
         {
             //var xrm = new XrmServiceContext("Xrm");
             //return 
-            Opportunity orig = this.xrm.OpportunitySet.Where(c => c.Id == id).FirstOrDefault();
+            
+            Opportunity orig = this.xrm.OpportunitySet.Where(c => c.Id == Guid.Parse(id)).FirstOrDefault();
 
             return ObjectConverter.ConvertToReadableOpportunity(orig, this.xrm);
         }

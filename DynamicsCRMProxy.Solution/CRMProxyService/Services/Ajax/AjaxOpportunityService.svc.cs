@@ -67,8 +67,10 @@ namespace CRMProxyService.Services
             NsoHomepageData data = new NsoHomepageData();
             data.Project = GetOneOpportunity(id);
 
-            //var cons = this.xrm.ConnectionSet.Where(x => x.Record1Id.Id.ToString() == id);
-            //data.ProjectTeam = ObjectConverter.ConvertToProxyConnection(cons, xrm);
+            List<ProxyConnection> proxies = new List<ProxyConnection>();
+            proxies = ObjectConverter.ConvertToProxyConnection(this.xrm.ConnectionSet, this.xrm);
+
+            data.ProjectTeam = proxies.Where(x => x.OpportunityId == id);
 
             //var allAccount = ObjectConverter.ConvertToProxyAccount(xrm.AccountSet.ToList());
 

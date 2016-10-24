@@ -19,6 +19,9 @@ namespace CRMProxyService.Services
         [OperationContract]
         [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "GetOneOpportunity/{id}")]
         ProxyOpportunity GetOneOpportunity(string id);
+
+        [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "GetNSOHomepageData/{id}")]
+        NsoHomepageData GetNSOHomepageData(string id);
         //[OperationContract]
         //[WebGet(ResponseFormat = WebMessageFormat.Json)]
         //bool UpdateOpportunity(Guid id, ProxyOpportunity opp);

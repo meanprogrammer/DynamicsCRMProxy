@@ -45,7 +45,7 @@ namespace CRMProxyService.Services
         {
             //var xrm = new XrmServiceContext("Xrm");
             //return 
-            
+
             Opportunity orig = this.xrm.OpportunitySet.Where(c => c.Id == Guid.Parse(id)).FirstOrDefault();
 
             return ObjectConverter.ConvertToReadableOpportunity(orig, this.xrm);
@@ -60,5 +60,22 @@ namespace CRMProxyService.Services
             return true;
         }
          * */
+
+
+        public NsoHomepageData GetNSOHomepageData(string id)
+        {
+            NsoHomepageData data = new NsoHomepageData();
+            data.Project = GetOneOpportunity(id);
+
+            var cons = this.xrm.ConnectionSet.Where(x => x.Record1Id.Id.ToString() == id);
+            data.ProjectTeam = ObjectConverter.ConvertToProxyConnection(cons, xrm);
+
+            var allAccount = ObjectConverter.ConvertToProxyAccount(xrm.AccountSet.ToList());
+
+            data.Agencies = allAccount.Where(g => g.EntityRole == "Implementing Agency" || g.EntityRole == "Executing Agency" && g.ParentID == "573b99ed-bf50-e511-80ee-3863bb2eb8d8");
+            data.CSO = allAccount.Where(g => g.EntityRole == "Civil Service Organization" && g.ParentID == "573b99ed-bf50-e511-80ee-3863bb2eb8d8");
+
+            return data;
+        }
     }
 }

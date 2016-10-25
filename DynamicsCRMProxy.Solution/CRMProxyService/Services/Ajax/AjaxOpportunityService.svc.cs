@@ -65,14 +65,14 @@ namespace CRMProxyService.Services
         public NsoHomepageData GetNSOHomepageData(string id)
         {
             NsoHomepageData data = new NsoHomepageData();
-            /*
+            
             data.Project = GetOneOpportunity(id);
 
             List<ProxyConnection> proxies = new List<ProxyConnection>();
             proxies = ObjectConverter.ConvertToProxyConnection(this.xrm.ConnectionSet, this.xrm);
 
             data.ProjectTeam = proxies.Where(x => x.OpportunityId == id);
-            */
+            
             var allAccount = ObjectConverter.ConvertToProxyAccount(xrm.AccountSet.ToList());
 
             data.Agencies = allAccount.Where(g => (g.EntityRole == "Implementing Agency" || g.EntityRole == "Executing Agency") && g.ParentID == "573b99ed-bf50-e511-80ee-3863bb2eb8d8");

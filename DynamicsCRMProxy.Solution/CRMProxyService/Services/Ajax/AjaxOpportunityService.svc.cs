@@ -50,17 +50,6 @@ namespace CRMProxyService.Services
 
             return ObjectConverter.ConvertToReadableOpportunity(orig.FirstOrDefault(), this.xrm);
         }
-        /*
-        public bool UpdateOpportunity(Guid id, Entity.ProxyOpportunity opp)
-        {
-            //var xrm = new XrmServiceContext("Xrm");
-            Xrm.Opportunity orig = this.xrm.OpportunitySet.Where(c => c.Id == id).FirstOrDefault();
-            orig.Description = opp.Description;
-            xrm.Update(orig);
-            return true;
-        }
-         * */
-
 
         public NsoHomepageData GetNSOHomepageData(string id)
         {
@@ -82,3 +71,14 @@ namespace CRMProxyService.Services
         }
     }
 }
+
+/*
+public bool UpdateOpportunity(Guid id, Entity.ProxyOpportunity opp)
+{
+    //var xrm = new XrmServiceContext("Xrm");
+    Xrm.Opportunity orig = this.xrm.OpportunitySet.Where(c => c.Id == id).FirstOrDefault();
+    orig.Description = opp.Description;
+    xrm.Update(orig);
+    return true;
+}
+ * */

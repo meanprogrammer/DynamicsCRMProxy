@@ -1,12 +1,15 @@
 ﻿using CRMProxyService.Entity;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
 using Xrm;
 
 namespace CRMProxyService.Services
@@ -32,6 +35,7 @@ namespace CRMProxyService.Services
             //using (var xrm = new XrmServiceContext("Xrm"))
             //{
             var all = xrm.OpportunitySet;
+            //var xml = CreateXml<Opportunity>(all);
             foreach (Opportunity item in all)
             {
                 ProxyOpportunity converted = ObjectConverter.ConvertToReadableOpportunity(item, this.xrm);
@@ -68,6 +72,22 @@ namespace CRMProxyService.Services
             data.CSO = allAccount.Where(g => g.EntityRole == "Civil Service Organization" && g.ParentID == "573b99ed-bf50-e511-80ee-3863bb2eb8d8");
             
             return data;
+        }
+
+        public static string CreateXml<T>(IQueryable<T> thisQueryable)
+        {
+            var thisList = thisQueryable.ToList();
+            var xmlResult = "";
+            using (var stringWriter = new StringWriter())
+            {
+                using (var xmlWriter = new XmlTextWriter(stringWriter))
+                {
+                    var serializer = new XmlSerializer(typeof(List<T>));
+                    serializer.Serialize(xmlWriter, thisList);
+                }
+                xmlResult = stringWriter.ToString();
+            }
+            return xmlResult;
         }
     }
 }

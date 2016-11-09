@@ -89,6 +89,12 @@ namespace CRMProxyService.Services
             }
             return xmlResult;
         }
+
+
+        public List<Opportunity> GetAllOpportunityRaw()
+        {
+            return xrm.OpportunitySet.ToList();
+        }
     }
 }
 

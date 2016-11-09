@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using Xrm;
 
 namespace CRMProxyService.Services
 {
@@ -14,8 +15,10 @@ namespace CRMProxyService.Services
     public interface IAjaxOpportunityService
     {
         [OperationContract]
-        [WebGet(ResponseFormat = WebMessageFormat.Xml)]
+        [WebGet(ResponseFormat = WebMessageFormat.Json)]
         List<ProxyOpportunity> GetAllOpportunity();
+        [WebGet(ResponseFormat = WebMessageFormat.Xml)]
+        List<Opportunity> GetAllOpportunityRaw();
         [OperationContract]
         [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "GetOneOpportunity/{id}")]
         ProxyOpportunity GetOneOpportunity(string id);

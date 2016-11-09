@@ -14,7 +14,7 @@ namespace CRMProxyService.Services
     public interface IAjaxOpportunityService
     {
         [OperationContract]
-        [WebGet(ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(ResponseFormat = WebMessageFormat.Xml)]
         List<ProxyOpportunity> GetAllOpportunity();
         [OperationContract]
         [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "GetOneOpportunity/{id}")]

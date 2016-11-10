@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="CRMProxyService.Services.Ajax.AjaxBackupService" CodeBehind="AjaxBackupService.svc.cs" %>

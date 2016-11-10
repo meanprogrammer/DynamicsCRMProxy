@@ -151,6 +151,7 @@
     <Content Include="Assemblies\Microsoft.Xrm.Tooling.WebResourceUtility.dll" />
     <Content Include="Services\AccountService.svc" />
     <Content Include="Services\AjaxAccountService.svc" />
+    <Content Include="Services\Ajax\AjaxBackupService.svc" />
     <Content Include="Services\Ajax\AjaxOpportunityService.svc" />
     <Content Include="Services\ConnectionService.svc" />
     <Content Include="Services\CovenantService.svc" />
@@ -170,9 +171,13 @@
     <Compile Include="Services\AjaxAccountService.svc.cs">
       <DependentUpon>AjaxAccountService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Services\Ajax\AjaxBackupService.svc.cs">
+      <DependentUpon>AjaxBackupService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Services\Ajax\AjaxOpportunityService.svc.cs">
       <DependentUpon>AjaxOpportunityService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Services\Ajax\Interface\IAjaxBackupService.cs" />
     <Compile Include="Services\Ajax\Interface\IAjaxOpportunityService.cs" />
     <Compile Include="Services\ConnectionService.svc.cs">
       <DependentUpon>ConnectionService.svc</DependentUpon>

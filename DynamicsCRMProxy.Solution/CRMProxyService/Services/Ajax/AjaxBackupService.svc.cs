@@ -9,7 +9,6 @@ using System.Text;
 
 namespace CRMProxyService.Services
 {
-    [ServiceContract(Namespace = "")]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class AjaxBackupService : IAjaxBackupService
     {

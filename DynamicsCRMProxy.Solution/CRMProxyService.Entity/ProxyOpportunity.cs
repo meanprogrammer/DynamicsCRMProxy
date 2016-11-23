@@ -57,6 +57,8 @@ namespace CRMProxyService.Entity
         public string AdditionalFinancing { get; set; }
         [DataMember]
         public string ProjectStatus { get; set; }
+        [DataMember]
+        public string TaskStatus { get; set; }
         /*
         [DataMember]
         public FormattedValueCollection Fake { get; set; }

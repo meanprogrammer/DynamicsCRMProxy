@@ -51,6 +51,7 @@ namespace CRMProxyService.Entity
                 co.AdditionalFinancing = orig.new_AdditionalFinancing.HasValue ? (orig.new_AdditionalFinancing.Value ? "Yes" : "No") : string.Empty;
                 //statuscode
                 co.ProjectStatus = EnsureValueFromOptionSet(orig, "statuscode");
+                co.TaskStatus = EnsureValueFromOptionSet(orig, "new_taskstatus");
                 co.Department = orig.new_Department;
                 co.ClosingDate = orig.EstimatedCloseDate;
                 co.Division = orig.new_Division;

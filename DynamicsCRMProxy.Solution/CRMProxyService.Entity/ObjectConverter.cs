@@ -54,7 +54,7 @@ namespace CRMProxyService.Entity
                 co.TaskStatus = EnsureValueFromOptionSet(orig, "new_taskstatus");
                 co.Department = orig.new_Department;
                 co.ClosingDate = orig.EstimatedCloseDate;
-                co.Division = orig.new_Division;
+                co.Division = EnsureValueFromOptionSet(orig, "new_division"); // orig.new_Division;
                 co.DivisionRole = EnsureValueFromOptionSet(orig, "new_divisionrole");
 
                 co.NSProjectType = EnsureValueFromOptionSet(orig, "new_nsprojecttype");

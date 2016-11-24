@@ -117,6 +117,7 @@
     <Compile Include="ProxyAccount.cs" />
     <Compile Include="ProxyBaselineProjection.cs" />
     <Compile Include="ProxyConnection.cs" />
+    <Compile Include="ProxyMilestoneEvent.cs" />
     <Compile Include="ProxyNSOCovenant.cs" />
     <Compile Include="ProxyNSOImpact.cs" />
     <Compile Include="ProxyNSOOutcome.cs" />

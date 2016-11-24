@@ -69,6 +69,8 @@ namespace CRMProxyService.Entity
 
                 //co.c1 = orig.opportunity_connections1;
                 //co.c2 = orig.opportunity_connections2;
+
+                co.PRFApproval = orig.new_PRFApproval.HasValue ? orig.new_PRFApproval.Value.ToString() : string.Empty;
             //}
             return co;
 
@@ -500,5 +502,14 @@ namespace CRMProxyService.Entity
             return result;
         }
 
+        //INCOMPLETE
+        public static ProxyMilestoneEvent SingleConvertToProxyMilestoneEvent(new_milestoneevent ev)
+        {
+            ProxyMilestoneEvent result = new ProxyMilestoneEvent();
+
+            //result.CRPICM = ev.cr
+
+            return result;
+        }
     }
 }

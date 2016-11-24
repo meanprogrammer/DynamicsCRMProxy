@@ -153,6 +153,7 @@
     <Content Include="Services\AjaxAccountService.svc" />
     <Content Include="Services\Ajax\AjaxBackupService.svc" />
     <Content Include="Services\Ajax\AjaxOpportunityService.svc" />
+    <Content Include="Services\MilestoneService.svc" />
     <Content Include="Services\ConnectionService.svc" />
     <Content Include="Services\CovenantService.svc" />
     <Content Include="Services\DMFService.svc" />
@@ -179,6 +180,9 @@
     </Compile>
     <Compile Include="Services\Ajax\Interface\IAjaxBackupService.cs" />
     <Compile Include="Services\Ajax\Interface\IAjaxOpportunityService.cs" />
+    <Compile Include="Services\MilestoneService.svc.cs">
+      <DependentUpon>MilestoneService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Services\ConnectionService.svc.cs">
       <DependentUpon>ConnectionService.svc</DependentUpon>
     </Compile>
@@ -191,8 +195,10 @@
     <Compile Include="Services\IAccountService.cs" />
     <Compile Include="Services\Ajax\Interface\IAjaxAccountService.cs" />
     <Compile Include="Services\IConnectionService.cs" />
+    <Compile Include="Services\IConfinancingService.cs" />
     <Compile Include="Services\ICovenantService.cs" />
     <Compile Include="Services\IDMFService.cs" />
+    <Compile Include="Services\IMilestoneService.cs" />
     <Compile Include="Services\IOpportunityService.cs" />
     <Compile Include="Services\ITradeFinanceService.cs" />
     <Compile Include="Services\OpportunityService.svc.cs">

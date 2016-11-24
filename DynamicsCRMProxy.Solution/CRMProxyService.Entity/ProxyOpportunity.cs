@@ -83,6 +83,10 @@ namespace CRMProxyService.Entity
         public string NSOProcessingCategory { get; set; }
         [DataMember]
         public string ProjectNo { get; set; }
+
+        [DataMember]
+        public string PRFApproval { get; set; }
+
         /*
         [DataMember]
         public string ClosingDateFormatted

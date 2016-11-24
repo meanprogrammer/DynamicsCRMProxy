@@ -71,7 +71,14 @@ namespace CRMProxyService.Entity
                 //co.c2 = orig.opportunity_connections2;
 
                 co.PRFApproval = orig.new_PRFApproval.HasValue ? orig.new_PRFApproval.Value.ToString() : string.Empty;
-            //}
+                co.CRPICM = orig.new_CRPICM.HasValue ? orig.new_CRPICM.ToString() : string.Empty;
+                co.LetterOfNoObjection = orig.new_LetterofNoObjection.HasValue ? orig.new_LetterofNoObjection.Value.ToString() : string.Empty;
+                co.FinalReviewICM = orig.new_FinalReviewICM.HasValue ? orig.new_FinalReviewICM.Value.ToString() : string.Empty;
+                co.RRPApproval = orig.new_RRPApproval.HasValue ? orig.new_RRPApproval.Value.ToString() : string.Empty;
+                co.SigningDate = orig.new_SigningDate.HasValue ? orig.new_SigningDate.Value.ToString() : string.Empty;
+                co.EffectivenessDate = orig.new_EffectivenessDate.HasValue ? orig.new_EffectivenessDate.Value.ToString() : string.Empty;
+                co.XARRDate = orig.new_XARR.HasValue ? orig.new_XARR.Value.ToString() : string.Empty;
+                co.ProjectEndDate = orig.new_ProjectEndDate.HasValue ? orig.new_ProjectEndDate.Value.ToString() : string.Empty;
             return co;
 
         }

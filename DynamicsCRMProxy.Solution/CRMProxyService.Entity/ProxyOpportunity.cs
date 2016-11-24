@@ -86,7 +86,22 @@ namespace CRMProxyService.Entity
 
         [DataMember]
         public string PRFApproval { get; set; }
-
+        [DataMember]
+        public string CRPICM { get; set; }
+        [DataMember]
+        public string LetterOfNoObjection { get; set; }
+        [DataMember]
+        public string FinalReviewICM { get; set; }
+        [DataMember]
+        public string RRPApproval { get; set; }
+        [DataMember]
+        public string SigningDate { get; set; }
+        [DataMember]
+        public string EffectivenessDate { get; set; }
+        [DataMember]
+        public string XARRDate { get; set; }
+        [DataMember]
+        public string ProjectEndDate { get; set; }
         /*
         [DataMember]
         public string ClosingDateFormatted

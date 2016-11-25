@@ -509,13 +509,26 @@ namespace CRMProxyService.Entity
             return result;
         }
 
-        //INCOMPLETE
-        public static ProxyMilestoneEvent SingleConvertToProxyMilestoneEvent(new_milestoneevent ev)
+        public static ProxyCommercialCofinancing SingleConverToProxyCommercialCofinancing(new_commercialcofinancign c)
         {
-            ProxyMilestoneEvent result = new ProxyMilestoneEvent();
+            ProxyCommercialCofinancing pc = new ProxyCommercialCofinancing();
+            pc.RelatedFacility = c.new_opportunity_new_commercialcofinancign_RelatedProject.Id.ToString();
+            pc.CofinancingCategory = EnsureValueFromOptionSet(c,"new_cc_cofinancingstatus");
+            pc.ConfinancingSubCategory = EnsureValueFromOptionSet(c, "new_cofinancingsubcategory");
+            pc.CofinancingType = EnsureValueFromOptionSet(c, "new_cc_cofinancingtype");
+            pc.CofinanceSource = c.new_CofinanceSource.Name;
+            pc.Amount = c.new_CC_CommercialCofinancingAmount.HasValue ? c.new_CC_CommercialCofinancingAmount.Value : 0;
+            pc.Status = EnsureValueFromOptionSet(c, "new_cc_cofinancingstatus");
+            return pc;
+        }
 
-            //result.CRPICM = ev.cr
-
+        public static IEnumerable<ProxyCommercialCofinancing> ConverToProxyCommercialCofinancing(IEnumerable<new_commercialcofinancign> list)
+        {
+            List<ProxyCommercialCofinancing> result = new List<ProxyCommercialCofinancing>();
+            foreach (var item in list)
+            {
+                result.Add(SingleConverToProxyCommercialCofinancing(item));
+            }
             return result;
         }
     }

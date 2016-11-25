@@ -10,8 +10,8 @@ namespace CRMProxyService.Services
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "ICovenantService" in both code and config file together.
     [ServiceContract]
-    public interface IConfinancingService
+    public interface ICofinancingService
     {
-
+        IEnumerable<ProxyCommercialCofinancing> GetCommercialCofinancing(Guid id);
     }
 }

@@ -12,6 +12,7 @@ namespace CRMProxyService.Services
     [ServiceContract]
     public interface ICofinancingService
     {
+        [OperationContract]
         IEnumerable<ProxyCommercialCofinancing> GetCommercialCofinancing(Guid id);
     }
 }
